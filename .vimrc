@@ -36,3 +36,4 @@ set expandtab
 "Syntax highlighting on
 filetype plugin on
 syntax on
+colorscheme desert
