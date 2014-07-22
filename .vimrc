@@ -33,7 +33,5 @@ set softtabstop=2
 "
 " always uses spaces instead of tab characters
 set expandtab
-"Syntax highlighting on
-filetype plugin on
 syntax on
 colorscheme desert
