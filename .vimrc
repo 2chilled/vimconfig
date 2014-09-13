@@ -37,3 +37,7 @@ set expandtab
 filetype plugin on
 syntax on
 colorscheme desert
+
+"Haskell config
+let g:haddock_browser="/usr/bin/firefox"
+au BufEnter *.hs compiler ghc
