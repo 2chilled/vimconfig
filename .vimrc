@@ -39,3 +39,6 @@ colorscheme desert
 "Haskell config
 let g:haddock_browser="/usr/bin/firefox"
 au BufEnter *.hs compiler ghc
+
+"set current working directory
+nnoremap ,cd :cd %:p:h<CR>
