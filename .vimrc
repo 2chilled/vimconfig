@@ -1,3 +1,7 @@
+"activate pathogen plugin manager
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
 " REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
 filetype plugin on
 
@@ -42,6 +46,3 @@ au BufEnter *.hs compiler ghc
 
 "set current working directory
 nnoremap ,cd :cd %:p:h<CR>
-
-"activate pathogen plugin manager
-execute pathogen#infect()
