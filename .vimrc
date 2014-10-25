@@ -42,3 +42,6 @@ au BufEnter *.hs compiler ghc
 
 "set current working directory
 nnoremap ,cd :cd %:p:h<CR>
+
+"activate pathogen plugin manager
+execute pathogen#infect()
