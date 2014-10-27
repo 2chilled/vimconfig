@@ -1,3 +1,7 @@
+"activate pathogen plugin manager
+call pathogen#infect()
+call pathogen#helptags()
+
 " REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
 filetype plugin on
 
@@ -35,3 +39,10 @@ set softtabstop=2
 set expandtab
 syntax on
 colorscheme desert
+
+"Haskell config
+let g:haddock_browser="/usr/bin/firefox"
+au BufEnter *.hs compiler ghc
+
+"set current working directory
+nnoremap ,cd :cd %:p:h<CR>
