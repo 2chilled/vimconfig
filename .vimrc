@@ -53,4 +53,3 @@ au BufEnter *.hs compiler ghc
 inoremap <C-@> <C-x><C-o>
 "set current working directory
 nnoremap ,cd :cd %:p:h<CR>
-
