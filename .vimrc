@@ -40,14 +40,15 @@ set expandtab
 syntax on
 colorscheme desert
 
-"syntastic config
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
 let g:haddock_browser="/usr/bin/firefox"
 let g:haskell_conceal_wide = 0
+let g:haskell_conceal = 1
+let g:haskell_conceal_enumerations = 0
 au BufEnter *.hs compiler ghc
+
+"completion optimizations
+"set completeopt=longest,menuone
+"inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 "Use the usual keybinding for omni completion
 inoremap <C-@> <C-x><C-o>
