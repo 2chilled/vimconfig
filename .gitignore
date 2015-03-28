@@ -1,7 +1,2 @@
-.vim/.netrwhist
-.vim/plugin
-.vim/compiler
-.vim/doc
-.vim/ftplugin
-.vim/indent
 .vim/spell
+.vim/bundle/*

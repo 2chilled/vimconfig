@@ -40,9 +40,17 @@ set expandtab
 syntax on
 colorscheme desert
 
-"Haskell config
+"syntastic config
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
 let g:haddock_browser="/usr/bin/firefox"
+let g:haskell_conceal_wide = 0
 au BufEnter *.hs compiler ghc
 
+"Use the usual keybinding for omni completion
+inoremap <C-@> <C-x><C-o>
 "set current working directory
 nnoremap ,cd :cd %:p:h<CR>
+
