@@ -10,6 +10,9 @@ filetype plugin on
 " program to always generate a file-name.
 set grepprg=grep\ -nH\ $*
 
+" case-sensitive if search contains an uppercase character
+set smartcase
+
 " OPTIONAL: This enables automatic indentation as you type.
 filetype indent on
 
@@ -39,6 +42,9 @@ set softtabstop=2
 set expandtab
 syntax on
 colorscheme desert
+
+"bash like tab completion for file names
+set wildmode=longest,list,full
 
 let g:haddock_browser="/usr/bin/firefox"
 let g:haskell_conceal_wide = 0
