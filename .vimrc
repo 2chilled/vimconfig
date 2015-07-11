@@ -40,6 +40,10 @@ set softtabstop=2
 "
 " always uses spaces instead of tab characters
 set expandtab
+
+"for setting vim settings in files
+set modeline
+
 syntax on
 colorscheme desert
 
@@ -60,3 +64,13 @@ au BufEnter *.hs compiler ghc
 inoremap <C-@> <C-x><C-o>
 "set current working directory
 nnoremap ,cd :cd %:p:h<CR>
+
+"syntactic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
