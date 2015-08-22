@@ -17,6 +17,7 @@ Plugin 'eagletmt/ghcmod-vim'
 Plugin 'eagletmt/neco-ghc'
 Plugin 'embear/vim-localvimrc'
 Plugin 'Shougo/vimproc.vim'
+Plugin 'kien/ctrlp.vim'
 "
 " " The following are examples of different formats supported.
 " " Keep Plugin commands between vundle#begin/end.
