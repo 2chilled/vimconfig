@@ -20,6 +20,7 @@ Plugin 'Shougo/neocomplete.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'rking/ag.vim'
 Plugin 'majutsushi/tagbar'
+Plugin 'dkprice/vim-easygrep'
 
 " " The following are examples of different formats supported.
 " " Keep Plugin commands between vundle#begin/end.
@@ -245,3 +246,5 @@ let g:tagbar_type_haskell = {
         \ 'type'   : 't'
     \ }
 \ }
+
+let g:EasyGrepFilesToExclude=".svn,.git,dist/**"
