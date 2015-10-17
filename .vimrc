@@ -21,6 +21,8 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'rking/ag.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'dkprice/vim-easygrep'
+Plugin 'honza/vim-snippets'
+Plugin 'lukerandall/haskellmode-vim'
 
 " " The following are examples of different formats supported.
 " " Keep Plugin commands between vundle#begin/end.
@@ -99,21 +101,22 @@ inoremap <C-@> <C-x><C-o>
 "set current working directory
 nnoremap ,cd :cd %:p:h<CR>
 
-nnoremap <F2> :GhcModType<CR>
-nnoremap <C-F2> :GhcModTypeClear<CR>
+noremap <F2> :GhcModType<CR>
+"Ctrl F2
+nnoremap O5Q :GhcModTypeClear<CR>
 nnoremap <F3> 
 nnoremap <C-F9> :SyntasticReset<CR>
 "Ctrl Shift F9
 nnoremap [20;5~ :SyntasticCheck<CR>
 nnoremap _ct :!hasktags --ignore-close-implementation --ctags .<CR>
-"Alt k
-nnoremap k :wincmd k<CR>
-"Alt j
-nnoremap j :wincmd j<CR>
-"Alt h
-nnoremap h :wincmd h<CR>
-"Alt l
-nnoremap l :wincmd l<CR>
+"_wk
+nnoremap _wk :wincmd k<CR>
+"_wj
+nnoremap _wj :wincmd j<CR>
+"_wh
+nnoremap _wh :wincmd h<CR>
+"_wl
+nnoremap _wl :wincmd l<CR>
 
 "syntactic settings
 set statusline+=%#warningmsg#
@@ -248,3 +251,4 @@ let g:tagbar_type_haskell = {
 \ }
 
 let g:EasyGrepFilesToExclude=".svn,.git,dist/**"
+let g:haddock_browser="/usr/bin/firefox"
