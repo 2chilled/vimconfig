@@ -22,7 +22,6 @@ Plugin 'rking/ag.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'dkprice/vim-easygrep'
 Plugin 'honza/vim-snippets'
-Plugin 'lukerandall/haskellmode-vim'
 
 " " The following are examples of different formats supported.
 " " Keep Plugin commands between vundle#begin/end.
