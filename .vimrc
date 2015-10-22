@@ -251,3 +251,9 @@ let g:tagbar_type_haskell = {
 
 let g:EasyGrepFilesToExclude=".svn,.git,dist/**"
 let g:haddock_browser="/usr/bin/firefox"
+
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/](\.(git|hg|svn))|dist$',
+    \ 'file': '\v\.(exe|so|dll)$',
+    \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
+    \ }
