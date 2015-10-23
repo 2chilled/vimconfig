@@ -151,6 +151,8 @@ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
+let g:necoghc_enable_detailed_browse = 1
+
 let g:EasyGrepFilesToExclude=".svn,.git,dist/**"
 let g:haddock_browser="/usr/bin/firefox"
 
