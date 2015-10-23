@@ -97,7 +97,7 @@ set wildmode=longest,list,full
 "inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 "Use the usual keybinding for omni completion
-inoremap <C-@> <C-x><C-o>
+"inoremap <C-@> <C-x><C-o>
 noremap <F2> :GhcModType<CR>
 "Ctrl F2
 nnoremap O5Q :GhcModTypeClear<CR>
@@ -162,3 +162,5 @@ let g:ctrlp_custom_ignore = {
     \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
     \ }
 let g:ycm_semantic_triggers = {'haskell' : ['.']}
+let g:ycm_min_num_of_chars_for_completion = 3
+let g:ycm_auto_trigger = 1
