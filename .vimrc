@@ -21,6 +21,7 @@ Plugin 'rking/ag.vim'
 Plugin 'dkprice/vim-easygrep'
 Plugin 'airblade/vim-rooter'
 Plugin 'eagletmt/neco-ghc'
+Plugin 'rodjek/vim-puppet'
 
 " " The following are examples of different formats supported.
 " " Keep Plugin commands between vundle#begin/end.
@@ -116,6 +117,9 @@ nnoremap _wh :wincmd h<CR>
 nnoremap _wl :wincmd l<CR>
 
 nnoremap t :tabnew 
+
+"Ctrl-F1
+nnoremap O5P :NERDTreeFind<CR>
 
 "syntactic settings
 set statusline+=%#warningmsg#
