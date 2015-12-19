@@ -14,6 +14,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'dag/vim2hs'
 Plugin 'eagletmt/ghcmod-vim'
 Plugin 'Shougo/vimproc.vim'
+Plugin 'Shougo/vimshell.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'embear/vim-localvimrc'
 Plugin 'kien/ctrlp.vim'
@@ -21,7 +22,8 @@ Plugin 'rking/ag.vim'
 Plugin 'dkprice/vim-easygrep'
 Plugin 'airblade/vim-rooter'
 Plugin 'eagletmt/neco-ghc'
-Plugin 'rodjek/vim-puppet'
+Plugin 'puppetlabs/puppet-syntax-vim'
+Plugin 'bling/vim-airline'
 
 " " The following are examples of different formats supported.
 " " Keep Plugin commands between vundle#begin/end.
@@ -168,3 +170,7 @@ let g:ctrlp_custom_ignore = {
 let g:ycm_semantic_triggers = {'haskell' : ['.']}
 let g:ycm_min_num_of_chars_for_completion = 3
 let g:ycm_auto_trigger = 1
+
+" airline
+let g:airline#extensions#tabline#enabled = 0
+set laststatus=2
