@@ -177,4 +177,3 @@ let g:airline#extensions#tabline#enabled = 0
 set laststatus=2
 
 " tagbar
-nmap <C-o> :TagbarToggle<CR>
