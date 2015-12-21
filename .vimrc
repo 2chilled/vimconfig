@@ -24,6 +24,7 @@ Plugin 'airblade/vim-rooter'
 Plugin 'eagletmt/neco-ghc'
 Plugin 'puppetlabs/puppet-syntax-vim'
 Plugin 'bling/vim-airline'
+Plugin 'majutsushi/tagbar'
 
 " " The following are examples of different formats supported.
 " " Keep Plugin commands between vundle#begin/end.
@@ -168,9 +169,12 @@ let g:ctrlp_custom_ignore = {
     \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
     \ }
 let g:ycm_semantic_triggers = {'haskell' : ['.']}
-let g:ycm_min_num_of_chars_for_completion = 3
+let g:ycm_min_num_of_chars_for_completion = 5
 let g:ycm_auto_trigger = 1
 
 " airline
 let g:airline#extensions#tabline#enabled = 0
 set laststatus=2
+
+" tagbar
+nmap <C-o> :TagbarToggle<CR>
