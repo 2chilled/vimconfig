@@ -160,11 +160,11 @@ autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
 let g:necoghc_enable_detailed_browse = 1
 
-let g:EasyGrepFilesToExclude=".svn,.git,dist/**"
+let g:EasyGrepFilesToExclude=".svn,.git,dist/**,target/**"
 let g:haddock_browser="/usr/bin/firefox"
 
 let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/](\.(git|hg|svn))|dist$',
+    \ 'dir':  '\v[\/](\.(git|hg|svn))|dist|target$',
     \ 'file': '\v\.(exe|so|dll)$',
     \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
     \ }
