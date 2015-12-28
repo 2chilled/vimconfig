@@ -169,7 +169,7 @@ let g:ctrlp_custom_ignore = {
     \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
     \ }
 let g:ycm_semantic_triggers = {'haskell' : ['.']}
-let g:ycm_min_num_of_chars_for_completion = 5
+let g:ycm_min_num_of_chars_for_completion = 3
 let g:ycm_auto_trigger = 1
 
 " airline
