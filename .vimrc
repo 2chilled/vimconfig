@@ -25,6 +25,7 @@ Plugin 'eagletmt/neco-ghc'
 Plugin 'puppetlabs/puppet-syntax-vim'
 Plugin 'bling/vim-airline'
 Plugin 'majutsushi/tagbar'
+Plugin 'LnL7/vim-nix'
 
 " " The following are examples of different formats supported.
 " " Keep Plugin commands between vundle#begin/end.
