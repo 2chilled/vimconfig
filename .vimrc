@@ -26,6 +26,7 @@ Plugin 'puppetlabs/puppet-syntax-vim'
 Plugin 'bling/vim-airline'
 Plugin 'majutsushi/tagbar'
 Plugin 'LnL7/vim-nix'
+Plugin 'bitc/vim-hdevtools'
 
 " " The following are examples of different formats supported.
 " " Keep Plugin commands between vundle#begin/end.
@@ -55,6 +56,7 @@ filetype plugin on
 " program to always generate a file-name.
 set grepprg=grep\ -nH\ $*
 
+" No automatic switching of working dir when buffer is opened
 set noacd
 
 " case-sensitive if search contains an uppercase character
@@ -62,11 +64,6 @@ set smartcase
 
 " OPTIONAL: This enables automatic indentation as you type.
 filetype indent on
-
-" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
-" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
-" The following changes the default filetype back to 'tex':
-let g:tex_flavor='latex'
 
 set tw=110
 
@@ -101,16 +98,6 @@ set wildmode=longest,list,full
 "set completeopt=longest,menuone
 "inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-"Use the usual keybinding for omni completion
-"inoremap <C-@> <C-x><C-o>
-noremap <F2> :GhcModType<CR>
-"Ctrl F2
-nnoremap O5Q :GhcModTypeClear<CR>
-nnoremap <F3> 
-nnoremap <C-F9> :SyntasticReset<CR>
-"Ctrl Shift F9
-nnoremap [20;5~ :SyntasticCheck<CR>
-nnoremap _ct :!hasktags --ignore-close-implementation --ctags .<CR>
 "_wk
 nnoremap _wk :wincmd k<CR>
 "_wj
@@ -119,11 +106,15 @@ nnoremap _wj :wincmd j<CR>
 nnoremap _wh :wincmd h<CR>
 "_wl
 nnoremap _wl :wincmd l<CR>
+"_wp
+nnoremap _wp :wincmd p<CR>
 
 nnoremap t :tabnew 
 
-"Ctrl-F1
-nnoremap O5P :NERDTreeFind<CR>
+"Alt-F1
+nnoremap O3P :NERDTreeFind<CR>
+"Alt-1
+nnoremap 1 :NERDTreeToggle<CR>
 
 "syntactic settings
 set statusline+=%#warningmsg#
@@ -138,18 +129,10 @@ let g:syntastic_check_on_wq = 0
 "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
-" Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-" Set minimum syntax keyword length.
 
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
-
-" Disable haskell-vim omnifunc
-let g:haskellmode_completion_ghc = 0
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -159,17 +142,28 @@ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
-let g:necoghc_enable_detailed_browse = 1
-
 let g:EasyGrepFilesToExclude=".svn,.git,dist/**,target/**"
-let g:haddock_browser="/usr/bin/firefox"
+let g:necoghc_enable_detailed_browse = 1
 
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/](\.(git|hg|svn))|dist|target$',
     \ 'file': '\v\.(exe|so|dll)$',
     \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
     \ }
-let g:ycm_semantic_triggers = {'haskell' : ['.']}
+let g:ycm_semantic_triggers =  {
+  \   'c' : ['->', '.'],
+  \   'objc' : ['->', '.', 're!\[[_a-zA-Z]+\w*\s', 're!^\s*[^\W\d]\w*\s',
+  \             're!\[.*\]\s'],
+  \   'ocaml' : ['.', '#'],
+  \   'cpp,objcpp' : ['->', '.', '::'],
+  \   'perl' : ['->'],
+  \   'php' : ['->', '::'],
+  \   'cs,java,javascript,typescript,d,python,perl6,scala,vb,elixir,go' : ['.'],
+  \   'ruby' : ['.', '::'],
+  \   'lua' : ['.', ':'],
+  \   'erlang' : [':'],
+  \   'haskell' : ['.'],
+  \ }
 let g:ycm_min_num_of_chars_for_completion = 3
 let g:ycm_auto_trigger = 1
 

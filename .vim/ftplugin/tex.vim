@@ -23,3 +23,8 @@ let g:Tex_IgnoreLevel=5
 let g:Tex_CompileRule_pdf='pdflatex -interaction=nonstopmode -output-directory=tmp $*'
 call IMAP('FIW', '\textit{FIW}<++>', 'tex')
 call IMAP('FIF', '\textit{FIF}<++>', 'tex')
+" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
+" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
+" The following changes the default filetype back to 'tex':
+let g:tex_flavor='latex'
+
