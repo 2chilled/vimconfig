@@ -6,5 +6,8 @@ nnoremap O5Q :HdevtoolsClear<CR>
 nnoremap <F3> 
 nnoremap _ct :!hasktags --ignore-close-implementation --ctags .<CR>
 let g:haddock_browser="/usr/bin/firefox"
-let g:necoghc_enable_detailed_browse = 1
 let g:syntastic_haskell_checkers = ["hdevtools", "hlint"]
+let g:haskellmode_completion_ghc = 0
+let g:necoghc_enable_detailed_browse = 1
+setlocal omnifunc=necoghc#omnifunc
+let g:ycm_semantic_triggers = {'haskell' : ['.']}

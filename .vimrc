@@ -11,17 +11,18 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'dag/vim2hs'
 Plugin 'eagletmt/ghcmod-vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/vimshell.vim'
+Plugin 'eagletmt/neco-ghc'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'embear/vim-localvimrc'
 Plugin 'kien/ctrlp.vim'
 Plugin 'rking/ag.vim'
 Plugin 'dkprice/vim-easygrep'
 Plugin 'airblade/vim-rooter'
-Plugin 'eagletmt/neco-ghc'
 Plugin 'puppetlabs/puppet-syntax-vim'
 Plugin 'bling/vim-airline'
 Plugin 'majutsushi/tagbar'
@@ -140,30 +141,15 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+" autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
 let g:EasyGrepFilesToExclude=".svn,.git,dist/**,target/**"
-let g:necoghc_enable_detailed_browse = 1
 
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/](\.(git|hg|svn))|dist|target$',
-    \ 'file': '\v\.(exe|so|dll)$',
+    \ 'file': '\v\.(exe|so|dll|hi|o)$',
     \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
     \ }
-let g:ycm_semantic_triggers =  {
-  \   'c' : ['->', '.'],
-  \   'objc' : ['->', '.', 're!\[[_a-zA-Z]+\w*\s', 're!^\s*[^\W\d]\w*\s',
-  \             're!\[.*\]\s'],
-  \   'ocaml' : ['.', '#'],
-  \   'cpp,objcpp' : ['->', '.', '::'],
-  \   'perl' : ['->'],
-  \   'php' : ['->', '::'],
-  \   'cs,java,javascript,typescript,d,python,perl6,scala,vb,elixir,go' : ['.'],
-  \   'ruby' : ['.', '::'],
-  \   'lua' : ['.', ':'],
-  \   'erlang' : [':'],
-  \   'haskell' : ['.'],
-  \ }
 let g:ycm_min_num_of_chars_for_completion = 3
 let g:ycm_auto_trigger = 1
 
