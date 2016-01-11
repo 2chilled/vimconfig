@@ -132,7 +132,7 @@ let g:syntastic_check_on_wq = 0
 let g:acp_enableAtStartup = 0
 
 " <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
 
 " Enable omni completion.
