@@ -27,8 +27,6 @@ Plugin 'bling/vim-airline'
 Plugin 'majutsushi/tagbar'
 Plugin 'LnL7/vim-nix'
 Plugin 'bitc/vim-hdevtools'
-Plugin 'garbas/vim-snipmate'
-Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'godlygeek/tabular'
 Plugin 'Twinside/vim-haskellFold'
 
