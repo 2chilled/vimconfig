@@ -12,10 +12,9 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'dag/vim2hs'
 Plugin 'eagletmt/ghcmod-vim'
-Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/vimshell.vim'
+Plugin 'Shougo/vimproc.vim'
 Plugin 'eagletmt/neco-ghc'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'embear/vim-localvimrc'
@@ -28,6 +27,8 @@ Plugin 'bling/vim-airline'
 Plugin 'majutsushi/tagbar'
 Plugin 'LnL7/vim-nix'
 Plugin 'bitc/vim-hdevtools'
+"Plugin 'godlygeek/tabular'
+Plugin 'Twinside/vim-haskellFold'
 
 " " The following are examples of different formats supported.
 " " Keep Plugin commands between vundle#begin/end.
@@ -156,5 +157,3 @@ let g:ycm_auto_trigger = 1
 " airline
 let g:airline#extensions#tabline#enabled = 0
 set laststatus=2
-
-" tagbar
