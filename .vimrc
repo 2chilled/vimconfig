@@ -100,16 +100,16 @@ set wildmode=longest,list,full
 "set completeopt=longest,menuone
 "inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-"_wk
-nnoremap _wk :wincmd k<CR>
-"_wj
-nnoremap _wj :wincmd j<CR>
-"_wh
-nnoremap _wh :wincmd h<CR>
-"_wl
-nnoremap _wl :wincmd l<CR>
-"_wp
-nnoremap _wp :wincmd p<CR>
+nnoremap <SPACE> <Nop>
+let mapleader = " "
+
+command SUDOwrite :execute 'w !sudo tee > /dev/null %' | edit!
+
+nnoremap <leader>wk :wincmd k<CR>
+nnoremap <leader>wj :wincmd j<CR>
+nnoremap <leader>wh :wincmd h<CR>
+nnoremap <leader>wl :wincmd l<CR>
+nnoremap <leader>wp :wincmd p<CR>
 
 nnoremap t :tabnew 
 
@@ -117,6 +117,9 @@ nnoremap t :tabnew
 nnoremap O3P :NERDTreeFind<CR>
 "Alt-1
 nnoremap 1 :NERDTreeToggle<CR>
+
+noremap <leader>bn :bn<CR>
+noremap <leader>bp :bp<CR>
 
 "syntactic settings
 set statusline+=%#warningmsg#
