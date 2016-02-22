@@ -114,7 +114,7 @@ nnoremap <leader>wp :wincmd p<CR>
 nnoremap t :tabnew 
 
 "Alt-F1
-nnoremap O3P :NERDTreeFind<CR>
+nnoremap O1;3P :NERDTreeFind<CR>
 "Alt-1
 nnoremap 1 :NERDTreeToggle<CR>
 
@@ -147,7 +147,7 @@ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
-let g:EasyGrepFilesToExclude=".svn,.git,dist/**,target/**"
+let g:EasyGrepFilesToExclude=".svn,.git,dist/**,target/**,node_modules/**"
 
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/](\.(git|hg|svn))|dist|target$',
