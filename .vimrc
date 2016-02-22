@@ -29,6 +29,7 @@ Plugin 'LnL7/vim-nix'
 Plugin 'bitc/vim-hdevtools'
 "Plugin 'godlygeek/tabular'
 Plugin 'Twinside/vim-haskellFold'
+Plugin 'pbrisbin/vim-syntax-shakespeare'
 
 " " The following are examples of different formats supported.
 " " Keep Plugin commands between vundle#begin/end.
