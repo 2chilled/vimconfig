@@ -111,6 +111,7 @@ nnoremap <leader>wj :wincmd j<CR>
 nnoremap <leader>wh :wincmd h<CR>
 nnoremap <leader>wl :wincmd l<CR>
 nnoremap <leader>wp :wincmd p<CR>
+nnoremap <leader>w= :wincmd =<CR>
 
 nnoremap t :tabnew 
 
@@ -161,3 +162,8 @@ let g:ycm_auto_trigger = 1
 " airline
 let g:airline#extensions#tabline#enabled = 0
 set laststatus=2
+"dbext
+let g:dbext_default_type   = 'MYSQL'
+let g:dbext_default_user   = 'root'
+let g:dbext_default_passwd = ''
+let g:dbext_default_profile_generic = 'type=MYSQL:user=root:passwd='
