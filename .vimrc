@@ -124,6 +124,7 @@ nnoremap 1 :NERDTreeToggle<CR>
 noremap <leader>bn :bn<CR>
 noremap <leader>bp :bp<CR>
 noremap <leader>hl :set hlsearch!<CR>
+noremap <leader>t :CtrlPTag<CR>
 
 "syntactic settings
 set statusline+=%#warningmsg#
