@@ -4,7 +4,10 @@ noremap <F2> :HdevtoolsType<CR>
 "Ctrl F2
 nnoremap O5Q :HdevtoolsClear<CR>
 nnoremap <F3> 
-nnoremap _ct :!hasktags --ignore-close-implementation --ctags .<CR>
+nnoremap <leader>ct :!hasktags --ignore-close-implementation --ctags .<CR>
+noremap <leader>gmt :GhcModType<CR>
+noremap <leader>gmT :GhcModTypeClear<CR>
+noremap <leader>gmti :GhcModTypeInsert<CR>
 let g:haddock_browser="/usr/bin/firefox"
 let g:syntastic_haskell_checkers = ["hdevtools", "hlint"]
 let g:haskellmode_completion_ghc = 0

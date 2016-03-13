@@ -29,6 +29,8 @@ Plugin 'LnL7/vim-nix'
 Plugin 'bitc/vim-hdevtools'
 Plugin 'Twinside/vim-haskellFold'
 Plugin 'derekwyatt/vim-scala'
+Plugin 'pbrisbin/vim-syntax-shakespeare'
+Plugin 'vim-scripts/dbext.vim'
 
 " " The following are examples of different formats supported.
 " " Keep Plugin commands between vundle#begin/end.
@@ -100,23 +102,30 @@ set wildmode=longest,list,full
 "set completeopt=longest,menuone
 "inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-"_wk
-nnoremap _wk :wincmd k<CR>
-"_wj
-nnoremap _wj :wincmd j<CR>
-"_wh
-nnoremap _wh :wincmd h<CR>
-"_wl
-nnoremap _wl :wincmd l<CR>
-"_wp
-nnoremap _wp :wincmd p<CR>
+nnoremap <SPACE> <Nop>
+let mapleader = " "
+
+command SUDOwrite :execute 'w !sudo tee > /dev/null %' | edit!
+
+nnoremap <leader>wk :wincmd k<CR>
+nnoremap <leader>wj :wincmd j<CR>
+nnoremap <leader>wh :wincmd h<CR>
+nnoremap <leader>wl :wincmd l<CR>
+nnoremap <leader>wp :wincmd p<CR>
+nnoremap <leader>w= :wincmd =<CR>
 
 nnoremap t :tabnew 
 
 "Alt-F1
-nnoremap O1;3P :NERDTreeFind<CR>
+"nnoremap O1;3P :NERDTreeFind<CR>
+nnoremap O3P :NERDTreeFind<CR>
 "Alt-1
 nnoremap 1 :NERDTreeToggle<CR>
+
+noremap <leader>bn :bn<CR>
+noremap <leader>bp :bp<CR>
+noremap <leader>hl :set hlsearch!<CR>
+noremap <leader>t :CtrlPTag<CR>
 
 "syntactic settings
 set statusline+=%#warningmsg#
@@ -157,3 +166,8 @@ let g:ycm_auto_trigger = 1
 " airline
 let g:airline#extensions#tabline#enabled = 0
 set laststatus=2
+"dbext
+let g:dbext_default_type   = 'MYSQL'
+let g:dbext_default_user   = 'root'
+let g:dbext_default_passwd = ''
+let g:dbext_default_profile_generic = 'type=MYSQL:user=root:passwd='
