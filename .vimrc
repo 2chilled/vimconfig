@@ -31,6 +31,10 @@ Plugin 'Twinside/vim-haskellFold'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'pbrisbin/vim-syntax-shakespeare'
 Plugin 'vim-scripts/dbext.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'derekwyatt/vim-sbt'
+Plugin 'ensime/ensime-vim'
+
 
 " " The following are examples of different formats supported.
 " " Keep Plugin commands between vundle#begin/end.
@@ -117,15 +121,16 @@ nnoremap <leader>w= :wincmd =<CR>
 nnoremap t :tabnew 
 
 "Alt-F1
-"nnoremap O1;3P :NERDTreeFind<CR>
-nnoremap O3P :NERDTreeFind<CR>
+nnoremap O1;3P :NERDTreeFind<CR>
+"nnoremap O3P :NERDTreeFind<CR>
 "Alt-1
 nnoremap 1 :NERDTreeToggle<CR>
 
 noremap <leader>bn :bn<CR>
 noremap <leader>bp :bp<CR>
 noremap <leader>hl :set hlsearch!<CR>
-noremap <leader>t :CtrlPTag<CR>
+noremap <leader>pt :CtrlPTag<CR>
+noremap <leader>pb :CtrlPBuffer<CR>
 
 "syntactic settings
 set statusline+=%#warningmsg#
@@ -171,3 +176,5 @@ let g:dbext_default_type   = 'MYSQL'
 let g:dbext_default_user   = 'root'
 let g:dbext_default_passwd = ''
 let g:dbext_default_profile_generic = 'type=MYSQL:user=root:passwd='
+
+set tags=./tags,./TAGS,tags,TAGS,./.tags,.tags
