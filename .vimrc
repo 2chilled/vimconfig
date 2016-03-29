@@ -15,6 +15,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'eagletmt/ghcmod-vim'
 Plugin 'Shougo/vimshell.vim'
 Plugin 'Shougo/vimproc.vim'
+Plugin 'Shougo/neocomplete'
 Plugin 'eagletmt/neco-ghc'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'embear/vim-localvimrc'
@@ -34,7 +35,6 @@ Plugin 'vim-scripts/dbext.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'derekwyatt/vim-sbt'
 Plugin 'ensime/ensime-vim'
-
 
 " " The following are examples of different formats supported.
 " " Keep Plugin commands between vundle#begin/end.
@@ -178,3 +178,6 @@ let g:dbext_default_passwd = ''
 let g:dbext_default_profile_generic = 'type=MYSQL:user=root:passwd='
 
 set tags=./tags,./TAGS,tags,TAGS,./.tags,.tags
+
+"neocomplete
+let g:neocomplete#enable_at_startup = 0
