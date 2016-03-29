@@ -121,8 +121,8 @@ nnoremap <leader>w= :wincmd =<CR>
 nnoremap t :tabnew 
 
 "Alt-F1
-nnoremap O1;3P :NERDTreeFind<CR>
-"nnoremap O3P :NERDTreeFind<CR>
+"nnoremap O1;3P :NERDTreeFind<CR>
+nnoremap O3P :NERDTreeFind<CR>
 "Alt-1
 nnoremap 1 :NERDTreeToggle<CR>
 
