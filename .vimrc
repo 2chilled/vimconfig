@@ -118,6 +118,8 @@ nnoremap <leader>wl :wincmd l<CR>
 nnoremap <leader>wp :wincmd p<CR>
 nnoremap <leader>w= :wincmd =<CR>
 
+nnoremap U :redo<CR>
+
 nnoremap t :tabnew 
 
 "Alt-F1
