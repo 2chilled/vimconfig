@@ -6,6 +6,8 @@ nnoremap <leader>enit :EnInspectType<CR>
 nnoremap <leader>ens :EnSymbol<CR>
 nnoremap <leader>end :EnDeclaration<CR>
 noremap <leader>enf :EnFormatSource<CR>
+noremap <leader>eni :EnSuggestImport<CR>
+noremap <leader>enD :EnDocBrowse<CR>
 
 let g:EnErrorStyle='Underlined'
 let g:ycm_filetype_whitelist = { '*': 0 }

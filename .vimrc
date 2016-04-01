@@ -33,8 +33,8 @@ Plugin 'derekwyatt/vim-scala'
 Plugin 'pbrisbin/vim-syntax-shakespeare'
 Plugin 'vim-scripts/dbext.vim'
 Plugin 'tpope/vim-fugitive'
-Plugin 'derekwyatt/vim-sbt'
 Plugin 'ensime/ensime-vim'
+Plugin 'sukima/xmledit'
 
 " " The following are examples of different formats supported.
 " " Keep Plugin commands between vundle#begin/end.
@@ -123,8 +123,8 @@ nnoremap U :redo<CR>
 nnoremap t :tabnew 
 
 "Alt-F1
-"nnoremap O1;3P :NERDTreeFind<CR>
-nnoremap O3P :NERDTreeFind<CR>
+nnoremap O1;3P :NERDTreeFind<CR>
+"nnoremap O3P :NERDTreeFind<CR>
 "Alt-1
 nnoremap 1 :NERDTreeToggle<CR>
 
