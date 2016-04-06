@@ -17,6 +17,8 @@ let g:ycm_filetype_blacklist = {
 
 let g:syntastic_full_redraws = 0
 
+let g:syntastic_scala_checkers = ["ensime"]
+
 "neocomplete
 "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
