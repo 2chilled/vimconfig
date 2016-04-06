@@ -35,7 +35,6 @@ Plugin 'vim-scripts/dbext.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'ensime/ensime-vim'
 Plugin 'sukima/xmledit'
-Plugin 'MarcWeber/vim-addon-sbt'
 
 " " The following are examples of different formats supported.
 " " Keep Plugin commands between vundle#begin/end.
