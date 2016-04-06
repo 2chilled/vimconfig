@@ -1,4 +1,4 @@
-set foldmethod=syntax
+set foldmethod=indent
 nnoremap <leader>ct :!ctags -R . --exclude=target --exclude=vendor<CR>
 noremap <leader>ent :EnType<CR>
 noremap <leader>enT :EnTypeCheck<CR>

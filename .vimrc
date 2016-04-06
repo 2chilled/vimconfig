@@ -35,6 +35,7 @@ Plugin 'vim-scripts/dbext.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'ensime/ensime-vim'
 Plugin 'sukima/xmledit'
+Plugin 'idanarye/vim-vebugger'
 
 " " The following are examples of different formats supported.
 " " Keep Plugin commands between vundle#begin/end.
@@ -186,3 +187,6 @@ let g:neocomplete#enable_at_startup = 0
 
 "windows
 set switchbuf +=useopen
+
+"vebugger
+let g:vebugger_leader='<Leader>d'
