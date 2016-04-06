@@ -4,7 +4,7 @@ noremap <leader>ent :EnType<CR>
 noremap <leader>enT :EnTypeCheck<CR>
 nnoremap <leader>enit :EnInspectType<CR>
 nnoremap <leader>ens :EnSymbol<CR>
-nnoremap <leader>end :EnDeclarationSplit<CR>
+nnoremap <leader>end :EnDeclaration<CR>
 noremap <leader>enf :EnFormatSource<CR>
 noremap <leader>eni :EnSuggestImport<CR>
 noremap <leader>enD :EnDocBrowse<CR>
