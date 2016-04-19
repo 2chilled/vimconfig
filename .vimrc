@@ -15,7 +15,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'eagletmt/ghcmod-vim'
 Plugin 'Shougo/vimshell.vim'
 Plugin 'Shougo/vimproc.vim'
-Plugin 'Shougo/neocomplete'
+Plugin 'Shougo/deoplete.nvim'
 Plugin 'eagletmt/neco-ghc'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'embear/vim-localvimrc'
@@ -36,6 +36,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'ensime/ensime-vim'
 Plugin 'sukima/xmledit'
 Plugin 'idanarye/vim-vebugger'
+Plugin 'jtai/vim-womprat'
 
 " " The following are examples of different formats supported.
 " " Keep Plugin commands between vundle#begin/end.
@@ -98,7 +99,9 @@ set expandtab
 set modeline
 
 syntax on
-colorscheme desert
+"colorscheme desert
+colorscheme womprat
+set t_Co=256
 
 "bash like tab completion for file names
 set wildmode=longest,list,full
