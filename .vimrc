@@ -38,6 +38,7 @@ Plugin 'sukima/xmledit'
 Plugin 'idanarye/vim-vebugger'
 Plugin 'jtai/vim-womprat'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'vim-latex/vim-latex'
 
 " " The following are examples of different formats supported.
 " " Keep Plugin commands between vundle#begin/end.
