@@ -130,9 +130,9 @@ nnoremap t :tabnew
 
 "Alt-F1
 "nnoremap O1;3P :NERDTreeFind<CR>
-nnoremap O3P :NERDTreeFind<CR>
+nnoremap <leader>ntf :NERDTreeFind<CR>
 "Alt-1
-nnoremap 1 :NERDTreeToggle<CR>
+nnoremap <leader>ntt :NERDTreeToggle<CR>
 
 noremap <leader>bn :bn<CR>
 noremap <leader>bp :bp<CR>
