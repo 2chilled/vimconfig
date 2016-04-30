@@ -39,6 +39,7 @@ Plugin 'idanarye/vim-vebugger'
 Plugin 'jtai/vim-womprat'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'vim-latex/vim-latex'
+Plugin 'deb.vim'
 
 " " The following are examples of different formats supported.
 " " Keep Plugin commands between vundle#begin/end.
@@ -67,6 +68,16 @@ filetype plugin on
 " search in a singe file. This will confuse Latex-Suite. Set your grep
 " program to always generate a file-name.
 set grepprg=grep\ -nH\ $*
+
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+  let g:EasyGrepCommand = 1
+endif
 
 " No automatic switching of working dir when buffer is opened
 set noacd
