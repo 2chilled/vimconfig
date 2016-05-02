@@ -40,6 +40,9 @@ Plugin 'jtai/vim-womprat'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'vim-latex/vim-latex'
 Plugin 'deb.vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'Yggdroot/indentLine'
+Plugin 'Raimondi/delimitMate'
 
 " " The following are examples of different formats supported.
 " " Keep Plugin commands between vundle#begin/end.
