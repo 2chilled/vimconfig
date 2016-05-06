@@ -41,8 +41,9 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'vim-latex/vim-latex'
 Plugin 'deb.vim'
 Plugin 'SirVer/ultisnips'
-Plugin 'Yggdroot/indentLine'
+Plugin 'luochen1990/rainbow'
 Plugin 'Raimondi/delimitMate'
+Plugin 'artur-shaik/vim-javacomplete2'
 
 " " The following are examples of different formats supported.
 " " Keep Plugin commands between vundle#begin/end.
