@@ -44,6 +44,8 @@ Plugin 'SirVer/ultisnips'
 Plugin 'luochen1990/rainbow'
 Plugin 'Raimondi/delimitMate'
 Plugin 'artur-shaik/vim-javacomplete2'
+Plugin 'gre/play2vim'
+Plugin 'othree/html5.vim'
 
 " " The following are examples of different formats supported.
 " " Keep Plugin commands between vundle#begin/end.
