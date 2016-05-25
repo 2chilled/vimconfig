@@ -41,11 +41,13 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'vim-latex/vim-latex'
 Plugin 'deb.vim'
 Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 Plugin 'luochen1990/rainbow'
 Plugin 'Raimondi/delimitMate'
 Plugin 'artur-shaik/vim-javacomplete2'
 Plugin 'gre/play2vim'
 Plugin 'othree/html5.vim'
+Plugin 'ervandew/supertab'
 
 " " The following are examples of different formats supported.
 " " Keep Plugin commands between vundle#begin/end.
@@ -192,7 +194,18 @@ let g:ctrlp_custom_ignore = {
     \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
     \ }
 let g:ycm_min_num_of_chars_for_completion = 3
+let g:ycm_min_num_identifier_candidate_chars = 3
 let g:ycm_auto_trigger = 1
+
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>""
 
 " airline
 let g:airline#extensions#tabline#enabled = 0
