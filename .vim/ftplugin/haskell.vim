@@ -1,9 +1,7 @@
 "Use the usual keybinding for omni completion
 "inoremap <C-@> <C-x><C-o>
 noremap <F2> :HdevtoolsType<CR>
-"Ctrl F2
-nnoremap O5Q :HdevtoolsClear<CR>
-nnoremap <F3> 
+nnoremap <F3> :HdevtoolsClear<CR>
 nnoremap <leader>ct :!hasktags --ignore-close-implementation --ctags .<CR>
 noremap <leader>gmt :GhcModType<CR>
 noremap <leader>gmT :GhcModTypeClear<CR>
@@ -14,3 +12,4 @@ let g:haskellmode_completion_ghc = 0
 let g:necoghc_enable_detailed_browse = 1
 setlocal omnifunc=necoghc#omnifunc
 let g:ycm_semantic_triggers = {'haskell' : ['.']}
+set cmdheight=2

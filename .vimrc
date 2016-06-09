@@ -120,9 +120,9 @@ set expandtab
 set modeline
 
 syntax on
+set t_Co=256
 "colorscheme desert
 colorscheme womprat
-set t_Co=256
 highlight Error cterm=underline ctermbg=Black ctermfg=Red
 
 "bash like tab completion for file names
