@@ -49,6 +49,7 @@ Plugin 'gre/play2vim'
 Plugin 'othree/html5.vim'
 Plugin 'ervandew/supertab'
 Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'ludovicchabant/vim-gutentags'
 
 " " The following are examples of different formats supported.
 " " Keep Plugin commands between vundle#begin/end.
