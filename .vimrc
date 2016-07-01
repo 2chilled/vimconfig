@@ -125,7 +125,6 @@ syntax on
 set t_Co=256
 "colorscheme desert
 colorscheme womprat
-highlight Error cterm=underline ctermbg=Black ctermfg=Red
 
 "bash like tab completion for file names
 set wildmode=longest,list,full
