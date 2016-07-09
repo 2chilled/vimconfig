@@ -13,3 +13,9 @@ let g:necoghc_enable_detailed_browse = 1
 setlocal omnifunc=necoghc#omnifunc
 let g:ycm_semantic_triggers = {'haskell' : ['.']}
 set cmdheight=2
+set tabstop=2
+" size of an "indent"
+set shiftwidth=2
+" a combination of spaces and tabs are used to simulate tab stops at a width
+" other than the (hard)tabstop
+set softtabstop=2
