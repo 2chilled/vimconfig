@@ -50,6 +50,7 @@ Plugin 'othree/html5.vim'
 Plugin 'ervandew/supertab'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'ludovicchabant/vim-gutentags'
+Plugin 'elubow/cql-vim'
 
 " " The following are examples of different formats supported.
 " " Keep Plugin commands between vundle#begin/end.
