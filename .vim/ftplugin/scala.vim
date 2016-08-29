@@ -19,3 +19,6 @@ let g:syntastic_full_redraws = 0
 let g:syntastic_scala_checkers = ["ensime"]
 
 let g:deoplete#enable_at_startup = 1
+
+autocmd BufWritePre * SortScalaImports
+autocmd BufWritePre * StripWhitespace
