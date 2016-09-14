@@ -51,6 +51,8 @@ Plugin 'ervandew/supertab'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'elubow/cql-vim'
+Plugin 'GEverding/vim-hocon'
+Plugin 'neomake/neomake'
 
 " " The following are examples of different formats supported.
 " " Keep Plugin commands between vundle#begin/end.
@@ -148,7 +150,7 @@ nnoremap <leader>w= :wincmd =<CR>
 
 nnoremap U :redo<CR>
 
-nnoremap t :tabnew 
+nnoremap t :tabnew
 
 "Alt-F1
 "nnoremap O1;3P :NERDTreeFind<CR>
@@ -231,3 +233,8 @@ let g:vebugger_leader='<Leader>d'
 
 "disable mouse support
 set mouse=
+
+autocmd BufWritePre * StripWhitespace
+
+"neomake
+let g:neomake_open_list = 2
