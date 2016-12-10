@@ -9,20 +9,16 @@ noremap <leader>enf :EnFormatSource<CR>
 noremap <leader>ensi :EnSuggestImport<CR>
 noremap <leader>enD :EnDocBrowse<CR>
 
-let g:ycm_filetype_whitelist = { '*': 0 }
-let g:ycm_filetype_blacklist = {
-      \ 'scala' : 1,
-      \}
-
-let g:syntastic_full_redraws = 0
-
-let g:syntastic_scala_checkers = ["ensime"]
-
-let g:syntastic_mode_map = { 'mode': 'active' }
-
 autocmd! BufWritePost * Neomake
-
-let g:deoplete#enable_at_startup = 1
 
 autocmd BufWritePre * SortScalaImports
 autocmd BufWritePre * StripWhitespace
+
+let g:deoplete#sources = {}
+let g:deoplete#sources.scala = ['buffer', 'tags', 'omni']
+let g:deoplete#omni#input_patterns = {}
+let g:deoplete#omni#input_patterns.scala =[
+  \ '[^. *\t]\.\w*',
+  \ '[:\[,] ?\w*',
+  \ '^import .*'
+  \]

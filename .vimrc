@@ -10,14 +10,12 @@ call vundle#begin()
 " " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'eagletmt/ghcmod-vim'
 Plugin 'Shougo/vimshell.vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/deoplete.nvim'
 Plugin 'eagletmt/neco-ghc'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'embear/vim-localvimrc'
 Plugin 'kien/ctrlp.vim'
 Plugin 'rking/ag.vim'
@@ -169,12 +167,6 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_mode_map = { 'mode': 'passive' }
-
 "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
@@ -198,13 +190,6 @@ let g:ctrlp_custom_ignore = {
     \ 'file': '\v\.(exe|so|dll|hi|o)$',
     \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
     \ }
-let g:ycm_min_num_of_chars_for_completion = 3
-let g:ycm_min_num_identifier_candidate_chars = 3
-let g:ycm_auto_trigger = 1
-
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " better key bindings for UltiSnipsExpandTrigger
@@ -223,9 +208,6 @@ let g:dbext_default_profile_generic = 'type=MYSQL:user=root:passwd='
 
 set tags=./tags,./TAGS,tags,TAGS,./.tags,.tags
 
-"neocomplete
-let g:neocomplete#enable_at_startup = 0
-
 "windows
 set switchbuf +=useopen
 
@@ -242,3 +224,7 @@ let g:neomake_open_list = 2
 
 autocmd BufWritePost * Neomake
 
+let g:deoplete#enable_at_startup = 1
+" Ctrl-Space: summon FULL (synced) autocompletion
+inoremap <silent><expr> <C-Space> deoplete#mappings#manual_complete()
+inoremap <silent><expr> <NUL> deoplete#mappings#manual_complete()
