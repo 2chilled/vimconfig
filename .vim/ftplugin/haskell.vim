@@ -6,6 +6,9 @@ nnoremap <leader>ct :!hasktags --ignore-close-implementation --ctags .<CR>
 noremap <leader>gmt :GhcModType<CR>
 noremap <leader>gmT :GhcModTypeClear<CR>
 noremap <leader>gmti :GhcModTypeInsert<CR>
+" not needed, just slows down vim because of https://github.com/commercialhaskell/stack/issues/274
+function! hdevtools#prepare_shutdown()
+endfunction
 let g:haddock_browser="/usr/bin/firefox"
 let g:haskellmode_completion_ghc = 0
 let g:necoghc_enable_detailed_browse = 1
