@@ -51,6 +51,7 @@ Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'elubow/cql-vim'
 Plugin 'GEverding/vim-hocon'
 Plugin 'neomake/neomake'
+Plugin 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim/' }
 
 " " The following are examples of different formats supported.
 " " Keep Plugin commands between vundle#begin/end.

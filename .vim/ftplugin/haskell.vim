@@ -21,4 +21,5 @@ set shiftwidth=2
 " other than the (hard)tabstop
 set softtabstop=2
 
-let g:neomake_haskell_enabled_makers = ['hdevtools', 'hlint']
+let g:neomake_haskell_enabled_makers = ['hlint']
+let g:ghcid_command = "ghcid --test=:main"
