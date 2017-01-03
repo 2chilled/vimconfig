@@ -16,7 +16,6 @@ Plugin 'Shougo/vimshell.vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/deoplete.nvim'
 Plugin 'eagletmt/neco-ghc'
-Plugin 'embear/vim-localvimrc'
 Plugin 'kien/ctrlp.vim'
 Plugin 'rking/ag.vim'
 Plugin 'dkprice/vim-easygrep'
@@ -162,11 +161,8 @@ noremap <leader>bp :bp<CR>
 noremap <leader>hl :set hlsearch!<CR>
 noremap <leader>pt :CtrlPTag<CR>
 noremap <leader>pb :CtrlPBuffer<CR>
-
-"syntactic settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+noremap gb :bprevious<CR>
+noremap gB :bnext<CR>
 
 "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
@@ -199,7 +195,8 @@ let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>""
 
 " airline
-let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
 set laststatus=2
 "dbext
 let g:dbext_default_type   = 'MYSQL'
@@ -229,3 +226,4 @@ let g:deoplete#enable_at_startup = 1
 " Ctrl-Space: summon FULL (synced) autocompletion
 inoremap <silent><expr> <C-Space> deoplete#mappings#manual_complete()
 inoremap <silent><expr> <NUL> deoplete#mappings#manual_complete()
+silent! so .vimlocal
