@@ -126,7 +126,7 @@ set modeline
 syntax on
 set t_Co=256
 "colorscheme desert
-colorscheme womprat
+colorscheme wombat256mod
 
 "bash like tab completion for file names
 set wildmode=longest,list,full
