@@ -1,6 +1,7 @@
 set foldmethod=indent
 nnoremap <leader>ct :!ctags -R . --exclude=target --exclude=vendor<CR>
-noremap <leader>ent :EnType<CR>
+nnoremap <leader>ent :EnType<CR>
+xnoremap <leader>ent :EnType selection<CR>
 noremap <leader>enT :EnTypeCheck<CR>
 nnoremap <leader>enit :EnInspectType<CR>
 nnoremap <leader>ens :EnSymbol<CR>
@@ -22,3 +23,5 @@ let g:deoplete#omni#input_patterns.scala = [
   \ '[:\[,] ?\w*',
   \ '^import .*'
   \]
+let ensime_server_v2=1
+let $ENSIME_VIM_DEBUG = 1
