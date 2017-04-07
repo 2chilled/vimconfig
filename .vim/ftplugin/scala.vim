@@ -6,6 +6,7 @@ noremap <leader>enT :EnTypeCheck<CR>
 nnoremap <leader>enit :EnInspectType<CR>
 nnoremap <leader>ens :EnSymbol<CR>
 nnoremap <leader>end :EnDeclaration<CR>
+nnoremap <leader>enoi :EnOrganizeImports<CR>
 noremap <leader>enf :EnFormatSource<CR>
 noremap <leader>ensi :EnSuggestImport<CR>
 noremap <leader>enD :EnDocBrowse<CR>
