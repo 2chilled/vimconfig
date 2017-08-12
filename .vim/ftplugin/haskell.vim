@@ -13,6 +13,7 @@ let g:haddock_browser="/usr/bin/firefox"
 let g:haskellmode_completion_ghc = 0
 let g:necoghc_enable_detailed_browse = 1
 setlocal omnifunc=necoghc#omnifunc
+set showcmd
 set cmdheight=2
 set tabstop=2
 " size of an "indent"
@@ -21,5 +22,5 @@ set shiftwidth=2
 " other than the (hard)tabstop
 set softtabstop=2
 
-let g:neomake_haskell_enabled_makers = ['hlint']
+let g:neomake_haskell_enabled_makers = ['hlint', 'hdevtools']
 let g:ghcid_command = "ghcid --test=:main"
