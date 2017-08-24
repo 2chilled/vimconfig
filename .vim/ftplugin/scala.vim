@@ -26,3 +26,7 @@ let g:deoplete#omni#input_patterns.scala = [
   \]
 let ensime_server_v2=1
 let $ENSIME_VIM_DEBUG = 1
+
+set errorformat=%E\ %#[error]\ %#%f:%l:\ %m,%-Z\ %#[error]\ %p^,%-G\ %#[error]\ %m
+set errorformat+=%W\ %#[warn]\ %#%f:%l:\ %m,%-Z\ %#[warn]\ %p^,%-G\ %#[warn]\ %m
+set errorformat+=%C\ %#%m
