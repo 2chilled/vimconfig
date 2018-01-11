@@ -230,3 +230,6 @@ let g:deoplete#enable_at_startup = 1
 inoremap <silent><expr> <C-Space> deoplete#mappings#manual_complete()
 inoremap <silent><expr> <NUL> deoplete#mappings#manual_complete()
 silent! so .vimlocal
+
+let g:gutentags_ctags_exclude = ['**/target/**']
+
