@@ -233,3 +233,4 @@ silent! so .vimlocal
 
 let g:gutentags_ctags_exclude = ['**/target/**']
 
+set guicursor=
