@@ -1,7 +1,7 @@
 set foldmethod=indent
 autocmd BufWritePre * SortScalaImports
 nnoremap <leader>ct :!ctags -R . --exclude=target --exclude=vendor<CR>
-setlocal omnifunc=javacomplete#Complete
+"setlocal omnifunc=javacomplete#Complete
 "let g:JaveComplete_AutoStartServer = 0
 
 "autocmd BufWritePre * SortScalaImports

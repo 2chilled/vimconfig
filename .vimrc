@@ -41,7 +41,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'luochen1990/rainbow'
 Plugin 'Raimondi/delimitMate'
-Plugin 'artur-shaik/vim-javacomplete2'
+"Plugin 'artur-shaik/vim-javacomplete2'
 Plugin 'gre/play2vim'
 Plugin 'othree/html5.vim'
 Plugin 'ervandew/supertab'
@@ -52,6 +52,7 @@ Plugin 'GEverding/vim-hocon'
 Plugin 'neomake/neomake'
 Plugin 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim/' }
 Plugin 'vim-scripts/BufOnly.vim'
+Plugin 'autozimu/LanguageClient-neovim'
 Plugin 'file:///home/chief/.vim/bundle/vim-sbt'
 
 " " The following are examples of different formats supported.
@@ -233,3 +234,33 @@ silent! so .vimlocal
 
 let g:gutentags_ctags_exclude = ['**/target/**']
 
+"used to workaround a strange char encoding issue with xfce4-terminal (02.05.2018)
+set guicursor=
+
+"language server client
+set hidden
+
+let g:LanguageClient_loggingLevel = 'DEBUG'
+
+let g:LanguageClient_serverCommands = {
+  \ 'java': ['java',
+            \'-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=1044',
+            \'-Declipse.application=org.eclipse.jdt.ls.core.id1',
+            \'-Dosgi.bundles.defaultStartLevel=4',
+            \'-Declipse.product=org.eclipse.jdt.ls.core.product',
+            \'-Dlog.level=ALL',
+            \'-noverify',
+            \'-Xmx1G',
+            \'-jar',
+            \'/home/chief/work/lsp-servers/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/plugins/org.eclipse.equinox.launcher_1.5.0.v20180512-1130.jar',
+            \'-configuration',
+            \'/home/chief/work/lsp-servers/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/config_linux',
+            \'-data',
+            \'/home/chief/work/srg/srf-ais',]
+  \ }
+
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+" Or map each action separately
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
