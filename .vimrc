@@ -243,20 +243,25 @@ set hidden
 let g:LanguageClient_loggingLevel = 'DEBUG'
 
 let g:LanguageClient_serverCommands = {
-  \ 'java': ['java',
-            \'-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=1044',
-            \'-Declipse.application=org.eclipse.jdt.ls.core.id1',
-            \'-Dosgi.bundles.defaultStartLevel=4',
-            \'-Declipse.product=org.eclipse.jdt.ls.core.product',
-            \'-Dlog.level=ALL',
-            \'-noverify',
-            \'-Xmx1G',
-            \'-jar',
-            \'/home/chief/work/lsp-servers/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/plugins/org.eclipse.equinox.launcher_1.5.0.v20180512-1130.jar',
-            \'-configuration',
-            \'/home/chief/work/lsp-servers/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/config_linux',
-            \'-data',
-            \'/home/chief/work/srg/srf-ais',]
+	\ 'java': ['java',
+		\'-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=1044',
+		\'-Declipse.application=org.eclipse.jdt.ls.core.id1',
+		\'-Dosgi.bundles.defaultStartLevel=4',
+		\'-Declipse.product=org.eclipse.jdt.ls.core.product',
+		\'-Dlog.level=ALL',
+		\'-noverify',
+		\'-Xmx1G',
+		\'-jar',
+		\'/home/chief/work/lsp-servers/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/plugins/org.eclipse.equinox.launcher_1.5.0.v20180512-1130.jar',
+		\'-configuration',
+		\'/home/chief/work/lsp-servers/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/config_linux',
+		\'-data',
+		\'/home/chief/work/srg/srf-ais',],
+  \ 'haskell': [
+      \'hie',
+      \'-r', '/home/chief/work/Programmierung_allgemein/Haskell/euler',
+      \'-l', '/tmp/hie.log',
+      \'--lsp'],
   \ }
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
