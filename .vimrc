@@ -11,11 +11,11 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'eagletmt/ghcmod-vim'
+"Plugin 'eagletmt/ghcmod-vim'
 Plugin 'Shougo/vimshell.vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/deoplete.nvim'
-Plugin 'eagletmt/neco-ghc'
+"Plugin 'eagletmt/neco-ghc'
 Plugin 'kien/ctrlp.vim'
 Plugin 'rking/ag.vim'
 Plugin 'dkprice/vim-easygrep'
@@ -24,7 +24,7 @@ Plugin 'puppetlabs/puppet-syntax-vim'
 Plugin 'bling/vim-airline'
 Plugin 'majutsushi/tagbar'
 Plugin 'LnL7/vim-nix'
-Plugin 'bitc/vim-hdevtools'
+"Plugin 'bitc/vim-hdevtools'
 Plugin 'Twinside/vim-haskellFold'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'pbrisbin/vim-syntax-shakespeare'
@@ -53,6 +53,7 @@ Plugin 'neomake/neomake'
 Plugin 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim/' }
 Plugin 'vim-scripts/BufOnly.vim'
 Plugin 'autozimu/LanguageClient-neovim'
+Plugin 'junegunn/fzf'
 Plugin 'file:///home/chief/.vim/bundle/vim-sbt'
 
 " " The following are examples of different formats supported.
@@ -243,24 +244,32 @@ set hidden
 let g:LanguageClient_loggingLevel = 'DEBUG'
 
 let g:LanguageClient_serverCommands = {
-  \ 'java': ['java',
-            \'-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=1044',
-            \'-Declipse.application=org.eclipse.jdt.ls.core.id1',
-            \'-Dosgi.bundles.defaultStartLevel=4',
-            \'-Declipse.product=org.eclipse.jdt.ls.core.product',
-            \'-Dlog.level=ALL',
-            \'-noverify',
-            \'-Xmx1G',
-            \'-jar',
-            \'/home/chief/work/lsp-servers/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/plugins/org.eclipse.equinox.launcher_1.5.0.v20180512-1130.jar',
-            \'-configuration',
-            \'/home/chief/work/lsp-servers/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/config_linux',
-            \'-data',
-            \'/home/chief/work/srg/srf-ais',]
+	\ 'java': ['java',
+		\'-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=1044',
+		\'-Declipse.application=org.eclipse.jdt.ls.core.id1',
+		\'-Dosgi.bundles.defaultStartLevel=4',
+		\'-Declipse.product=org.eclipse.jdt.ls.core.product',
+		\'-Dlog.level=ALL',
+		\'-noverify',
+		\'-Xmx1G',
+		\'-jar',
+		\'/home/chief/work/lsp-servers/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/plugins/org.eclipse.equinox.launcher_1.5.0.v20180512-1130.jar',
+		\'-configuration',
+		\'/home/chief/work/lsp-servers/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/config_linux',
+		\'-data',
+		\'/home/chief/work/srg/srf-ais',],
+  \ 'haskell': [
+      \'hie',
+      \'-r', '/home/chief/work/Programmierung_allgemein/Haskell/euler',
+      \'-l', '/tmp/hie.log',
+      \'--lsp'],
   \ }
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 " Or map each action separately
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+nnoremap <silent> lh :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> ld :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> lr :call LanguageClient#textDocument_rename()<CR>
+nnoremap <silent> lR :call LanguageClient#textDocument_references()<CR>
+nnoremap <silent> lf :call LanguageClient#textDocument_formatting()<CR>
+noremap <silent> lF :call LanguageClient#textDocument_rangeFormatting()<CR>
