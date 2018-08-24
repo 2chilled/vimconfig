@@ -13,6 +13,8 @@ set shiftwidth=4
 " other than the (hard)tabstop
 set softtabstop=4
 
+let g:neomake_java_enabled_makers = []
+
 "nnoremap <leader>ct :!ctags -R . --exclude=target --exclude=vendor<CR>
 "nnoremap <leader>ent :EnType<CR>
 "xnoremap <leader>ent :EnType selection<CR>
