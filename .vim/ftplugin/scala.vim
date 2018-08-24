@@ -24,6 +24,8 @@ let g:deoplete#omni#input_patterns.scala = [
   \ '[:\[,] ?\w*',
   \ '^import .*'
   \]
+call deoplete#custom#option('ignore_sources', {'scala': ['LanguageClient']})
+
 let ensime_server_v2=1
 let $ENSIME_VIM_DEBUG = 1
 
