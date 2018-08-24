@@ -266,10 +266,10 @@ let g:LanguageClient_serverCommands = {
   \ }
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-" Or map each action separately
-nnoremap <silent> lh :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> ld :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> lr :call LanguageClient#textDocument_rename()<CR>
-nnoremap <silent> lR :call LanguageClient#textDocument_references()<CR>
-nnoremap <silent> lf :call LanguageClient#textDocument_formatting()<CR>
-noremap <silent> lF :call LanguageClient#textDocument_rangeFormatting()<CR>
+map <Leader>lh :call LanguageClient#textDocument_hover()<CR>
+map <Leader>ld :call LanguageClient#textDocument_definition()<CR>
+map <Leader>lr :call LanguageClient#textDocument_rename()<CR>
+map <Leader>lR :call LanguageClient#textDocument_references()<CR>
+map <Leader>lf :call LanguageClient#textDocument_formatting()<CR>
+map <Leader>la :call LanguageClient#textDocument_codeAction()<CR>
+map <Leader>ls :call LanguageClient#textDocument_documentSymbol()<CR>
