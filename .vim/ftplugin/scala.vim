@@ -24,6 +24,13 @@ let g:deoplete#omni#input_patterns.scala = [
   \ '[:\[,] ?\w*',
   \ '^import .*'
   \]
+call deoplete#custom#var('omni', 'input_patterns', {
+  \ 'scala': [
+    \ '[^. *\t]\.\w*',
+    \ '[:\[,] ?\w*',
+    \ '^import .*'
+    \],
+  \})
 call deoplete#custom#option('ignore_sources', {'scala': ['LanguageClient']})
 
 let ensime_server_v2=1
