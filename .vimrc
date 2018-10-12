@@ -238,6 +238,16 @@ inoremap <silent><expr> <NUL> deoplete#mappings#manual_complete()
 silent! so .vimlocal
 
 let g:gutentags_ctags_exclude = ['**/target/**']
+let g:gutentags_project_root = [
+  \'.project_root',
+  \'.git',
+  \ '.hg',
+  \ '.svn',
+  \ '.bzr',
+  \ '_darcs',
+  \ '_FOSSIL_',
+  \ '.fslckout']
+
 
 "used to workaround a strange char encoding issue with xfce4-terminal (02.05.2018)
 set guicursor=
@@ -257,9 +267,9 @@ let g:LanguageClient_serverCommands = {
 		\'-noverify',
 		\'-Xmx1G',
 		\'-jar',
-		\'/home/chief/work/lsp-servers/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/plugins/org.eclipse.equinox.launcher_1.5.0.v20180512-1130.jar',
+		\'/home/chief/work/lsp-servers/eclipse.jdt.ls.bin/plugins/org.eclipse.equinox.launcher_1.5.100.v20180827-1352.jar',
 		\'-configuration',
-		\'/home/chief/work/lsp-servers/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/config_linux',
+		\'/home/chief/work/lsp-servers/eclipse.jdt.ls.bin/config_linux',
 		\'-data',
 		\'/home/chief/work/srg/srf-ais',],
   \ 'haskell': [
@@ -271,6 +281,7 @@ let g:LanguageClient_serverCommands = {
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 map <Leader>lh :call LanguageClient#textDocument_hover()<CR>
+map <Leader>lc :call LanguageClient#textDocument_codeAction()<CR>
 map <Leader>ld :call LanguageClient#textDocument_definition()<CR>
 map <Leader>lr :call LanguageClient#textDocument_rename()<CR>
 map <Leader>lR :call LanguageClient#textDocument_references()<CR>
