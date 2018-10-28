@@ -273,3 +273,5 @@ nnoremap <silent> lr :call LanguageClient#textDocument_rename()<CR>
 nnoremap <silent> lR :call LanguageClient#textDocument_references()<CR>
 nnoremap <silent> lf :call LanguageClient#textDocument_formatting()<CR>
 noremap <silent> lF :call LanguageClient#textDocument_rangeFormatting()<CR>
+"exit terminal on escape
+tnoremap <Esc> <C-\><C-n>
