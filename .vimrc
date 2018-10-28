@@ -228,12 +228,26 @@ let g:neomake_open_list = 2
 autocmd BufWritePost * Neomake
 
 let g:deoplete#enable_at_startup = 1
+" disable truncate feature
+call deoplete#custom#source('_',  'max_menu_width', 0)
+call deoplete#custom#source('_',  'max_abbr_width', 0)
+call deoplete#custom#source('_',  'max_kind_width', 0)
 " Ctrl-Space: summon FULL (synced) autocompletion
 inoremap <silent><expr> <C-Space> deoplete#mappings#manual_complete()
 inoremap <silent><expr> <NUL> deoplete#mappings#manual_complete()
 silent! so .vimlocal
 
 let g:gutentags_ctags_exclude = ['**/target/**']
+let g:gutentags_project_root = [
+  \'.project_root',
+  \'.git',
+  \ '.hg',
+  \ '.svn',
+  \ '.bzr',
+  \ '_darcs',
+  \ '_FOSSIL_',
+  \ '.fslckout']
+
 
 "used to workaround a strange char encoding issue with xfce4-terminal (02.05.2018)
 set guicursor=
@@ -253,9 +267,9 @@ let g:LanguageClient_serverCommands = {
 		\'-noverify',
 		\'-Xmx1G',
 		\'-jar',
-		\'/home/chief/work/lsp-servers/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/plugins/org.eclipse.equinox.launcher_1.5.0.v20180512-1130.jar',
+		\'/home/chief/work/lsp-servers/eclipse.jdt.ls.bin/plugins/org.eclipse.equinox.launcher_1.5.100.v20180827-1352.jar',
 		\'-configuration',
-		\'/home/chief/work/lsp-servers/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/config_linux',
+		\'/home/chief/work/lsp-servers/eclipse.jdt.ls.bin/config_linux',
 		\'-data',
 		\'/home/chief/work/srg/srf-ais',],
   \ 'haskell': [
@@ -266,12 +280,13 @@ let g:LanguageClient_serverCommands = {
   \ }
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-" Or map each action separately
-nnoremap <silent> lh :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> ld :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> lr :call LanguageClient#textDocument_rename()<CR>
-nnoremap <silent> lR :call LanguageClient#textDocument_references()<CR>
-nnoremap <silent> lf :call LanguageClient#textDocument_formatting()<CR>
-noremap <silent> lF :call LanguageClient#textDocument_rangeFormatting()<CR>
 "exit terminal on escape
 tnoremap <Esc> <C-\><C-n>
+map <Leader>lh :call LanguageClient#textDocument_hover()<CR>
+map <Leader>lc :call LanguageClient#textDocument_codeAction()<CR>
+map <Leader>ld :call LanguageClient#textDocument_definition()<CR>
+map <Leader>lr :call LanguageClient#textDocument_rename()<CR>
+map <Leader>lR :call LanguageClient#textDocument_references()<CR>
+map <Leader>lf :call LanguageClient#textDocument_formatting()<CR>
+map <Leader>la :call LanguageClient#textDocument_codeAction()<CR>
+map <Leader>ls :call LanguageClient#textDocument_documentSymbol()<CR>

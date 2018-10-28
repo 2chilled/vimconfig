@@ -2,7 +2,7 @@
 "inoremap <C-@> <C-x><C-o>
 "noremap <F2> :HdevtoolsType<CR>
 "nnoremap <F3> :HdevtoolsClear<CR>
-nnoremap <leader>ct :!hasktags --ignore-close-implementation --ctags .<CR>
+nnoremap <leader>ct :!hasktags --ctags .<CR>
 "noremap <leader>gmt :GhcModType<CR>
 "noremap <leader>gmT :GhcModTypeClear<CR>
 "noremap <leader>gmti :GhcModTypeInsert<CR>
@@ -24,3 +24,4 @@ set softtabstop=2
 
 "let g:neomake_haskell_enabled_makers = ['hlint', 'hdevtools']
 let g:ghcid_command = "ghcid --test=:main"
+set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
