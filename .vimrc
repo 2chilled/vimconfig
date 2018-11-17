@@ -281,7 +281,9 @@ let g:LanguageClient_serverCommands = {
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 "exit terminal on escape
-tnoremap <Esc> <C-\><C-n>
+"tnoremap <Esc> <C-\><C-n>
+tnoremap  <C-\><C-n>
+
 map <Leader>lh :call LanguageClient#textDocument_hover()<CR>
 map <Leader>lc :call LanguageClient#textDocument_codeAction()<CR>
 map <Leader>ld :call LanguageClient#textDocument_definition()<CR>
