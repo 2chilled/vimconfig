@@ -12,7 +12,7 @@ nnoremap <leader>ct :!hasktags --ctags .<CR>
 "let g:haddock_browser="/usr/bin/firefox"
 "let g:haskellmode_completion_ghc = 0
 "let g:necoghc_enable_detailed_browse = 1
-setlocal omnifunc=lsc#complete#complete
+set omnifunc=lsc#complete#complete
 set showcmd
 set cmdheight=2
 set tabstop=2
@@ -28,6 +28,9 @@ set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
 
 let g:deoplete#sources = {}
 let g:deoplete#sources.haskell = ['buffer', 'tags', 'omni']
+call deoplete#custom#source('omni', 'functions', {
+  \ 'haskell':  'lsc#complete#complete',
+  \})
 
 "call deoplete#custom#var('omni', 'input_patterns', {
   "\ 'haskell': [
