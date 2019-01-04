@@ -303,8 +303,8 @@ let g:lsc_server_commands = {
 let g:lsc_auto_map = {
   \ 'GoToDefinition': '<Leader>ld',
   \ 'FindReferences': '<Leader>lR',
-  \ 'NextReference': '<C-n>',
-  \ 'PreviousReference': '<C-p>',
+  \ 'NextReference': '',
+  \ 'PreviousReference': '',
   \ 'FindImplementations': '<Leader>li',
   \ 'FindCodeActions': '<Leader>la',
   \ 'DocumentSymbol': '<Leader>ls',

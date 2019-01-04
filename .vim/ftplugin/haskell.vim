@@ -32,9 +32,9 @@ call deoplete#custom#source('omni', 'functions', {
   \ 'haskell':  'lsc#complete#complete',
   \})
 
-"call deoplete#custom#var('omni', 'input_patterns', {
-  "\ 'haskell': [
-    "\ '[^. \t0-9]\.\w*',
-    "\ '^import\s+\w*',
-    "\],
-  "\})
+call deoplete#custom#var('omni', 'input_patterns', {
+  \ 'haskell': [
+    \ '[^. *\t]\.\w*',
+    \ '^import\s+\w*',
+    \],
+  \})
