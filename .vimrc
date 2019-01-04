@@ -30,7 +30,7 @@ Plugin 'derekwyatt/vim-scala'
 Plugin 'pbrisbin/vim-syntax-shakespeare'
 Plugin 'vim-scripts/dbext.vim'
 Plugin 'tpope/vim-fugitive'
-Plugin 'ensime/ensime-vim'
+"Plugin 'ensime/ensime-vim'
 Plugin 'sukima/xmledit'
 Plugin 'idanarye/vim-vebugger'
 Plugin 'jtai/vim-womprat'
@@ -53,6 +53,7 @@ Plugin 'neomake/neomake'
 Plugin 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim/' }
 Plugin 'vim-scripts/BufOnly.vim'
 Plugin 'autozimu/LanguageClient-neovim'
+Plugin 'natebosch/vim-lsc'
 Plugin 'junegunn/fzf'
 Plugin 'file:///home/chief/.vim/bundle/vim-sbt'
 
@@ -272,12 +273,13 @@ let g:LanguageClient_serverCommands = {
 		\'/home/chief/work/lsp-servers/eclipse.jdt.ls.bin/config_linux',
 		\'-data',
 		\'/home/chief/work/srg/srf-ais',],
-  \ 'haskell': [
-      \'hie',
-      \'-r', '/home/chief/work/Programmierung_allgemein/Haskell/euler',
-      \'-l', '/tmp/hie.log',
-      \'--lsp'],
   \ }
+
+   "'haskell': [
+      "\'hie',
+      "\'-r', '/home/chief/work/Programmierung_allgemein/Haskell/euler',
+      "\'-l', '/tmp/hie.log',
+      "\'--lsp'],
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 "exit terminal on escape
@@ -292,3 +294,22 @@ map <Leader>lR :call LanguageClient#textDocument_references()<CR>
 map <Leader>lf :call LanguageClient#textDocument_formatting()<CR>
 map <Leader>la :call LanguageClient#textDocument_codeAction()<CR>
 map <Leader>ls :call LanguageClient#textDocument_documentSymbol()<CR>
+
+let g:lsc_enable_autocomplete = v:false
+let g:lsc_server_commands = {
+  \ 'scala': 'metals-vim',
+  \ 'haskell': 'hie --lsp -l /tmp/hie.log',
+  \}
+let g:lsc_auto_map = {
+  \ 'GoToDefinition': '<Leader>ld',
+  \ 'FindReferences': '<Leader>lR',
+  \ 'NextReference': '<C-n>',
+  \ 'PreviousReference': '<C-p>',
+  \ 'FindImplementations': '<Leader>li',
+  \ 'FindCodeActions': '<Leader>la',
+  \ 'DocumentSymbol': '<Leader>ls',
+  \ 'WorkspaceSymbol': 'gS',
+  \ 'ShowHover': 'v:true',
+  \ 'SignatureHelp': '<Leader>lS',
+  \ 'Completion': 'completefunc',
+  \}
