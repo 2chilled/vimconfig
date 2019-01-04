@@ -281,19 +281,19 @@ let g:LanguageClient_serverCommands = {
       "\'-l', '/tmp/hie.log',
       "\'--lsp'],
 
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+"nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 "exit terminal on escape
 "tnoremap <Esc> <C-\><C-n>
 tnoremap  <C-\><C-n>
 
-map <Leader>lh :call LanguageClient#textDocument_hover()<CR>
-map <Leader>lc :call LanguageClient#textDocument_codeAction()<CR>
-map <Leader>ld :call LanguageClient#textDocument_definition()<CR>
-map <Leader>lr :call LanguageClient#textDocument_rename()<CR>
-map <Leader>lR :call LanguageClient#textDocument_references()<CR>
-map <Leader>lf :call LanguageClient#textDocument_formatting()<CR>
-map <Leader>la :call LanguageClient#textDocument_codeAction()<CR>
-map <Leader>ls :call LanguageClient#textDocument_documentSymbol()<CR>
+"map <Leader>lh :call LanguageClient#textDocument_hover()<CR>
+"map <Leader>lc :call LanguageClient#textDocument_codeAction()<CR>
+"map <Leader>ld :call LanguageClient#textDocument_definition()<CR>
+"map <Leader>lr :call LanguageClient#textDocument_rename()<CR>
+"map <Leader>lR :call LanguageClient#textDocument_references()<CR>
+"map <Leader>lf :call LanguageClient#textDocument_formatting()<CR>
+"map <Leader>la :call LanguageClient#textDocument_codeAction()<CR>
+"map <Leader>ls :call LanguageClient#textDocument_documentSymbol()<CR>
 
 let g:lsc_enable_autocomplete = v:false
 let g:lsc_server_commands = {
@@ -309,7 +309,7 @@ let g:lsc_auto_map = {
   \ 'FindCodeActions': '<Leader>la',
   \ 'DocumentSymbol': '<Leader>ls',
   \ 'WorkspaceSymbol': 'gS',
-  \ 'ShowHover': 'v:true',
+  \ 'ShowHover': '<Leader>lh',
   \ 'SignatureHelp': '<Leader>lS',
-  \ 'Completion': 'completefunc',
+  \ 'Completion': 'omnifunc',
   \}

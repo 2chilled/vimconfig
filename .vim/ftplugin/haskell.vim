@@ -12,7 +12,7 @@ nnoremap <leader>ct :!hasktags --ctags .<CR>
 "let g:haddock_browser="/usr/bin/firefox"
 "let g:haskellmode_completion_ghc = 0
 "let g:necoghc_enable_detailed_browse = 1
-"setlocal omnifunc=necoghc#omnifunc
+setlocal omnifunc=lsc#complete#complete
 set showcmd
 set cmdheight=2
 set tabstop=2
@@ -25,3 +25,13 @@ set softtabstop=2
 "let g:neomake_haskell_enabled_makers = ['hlint', 'hdevtools']
 let g:ghcid_command = "ghcid --test=:main"
 set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
+
+let g:deoplete#sources = {}
+let g:deoplete#sources.haskell = ['buffer', 'tags', 'omni']
+
+"call deoplete#custom#var('omni', 'input_patterns', {
+  "\ 'haskell': [
+    "\ '[^. \t0-9]\.\w*',
+    "\ '^import\s+\w*',
+    "\],
+  "\})
