@@ -313,3 +313,4 @@ let g:lsc_auto_map = {
   \ 'SignatureHelp': '<Leader>lS',
   \ 'Completion': 'omnifunc',
   \}
+nnoremap <Leader>lD :LSClientAllDiagnostics<CR>
