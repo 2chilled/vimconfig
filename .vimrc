@@ -236,7 +236,6 @@ call deoplete#custom#source('_',  'max_kind_width', 0)
 " Ctrl-Space: summon FULL (synced) autocompletion
 inoremap <silent><expr> <C-Space> deoplete#mappings#manual_complete()
 inoremap <silent><expr> <NUL> deoplete#mappings#manual_complete()
-silent! so .vimlocal
 
 let g:gutentags_ctags_exclude = ['**/target/**']
 let g:gutentags_project_root = [
@@ -314,3 +313,5 @@ let g:lsc_auto_map = {
   \ 'Completion': 'omnifunc',
   \}
 nnoremap <Leader>lD :LSClientAllDiagnostics<CR>
+
+silent! so .vimlocal
