@@ -271,47 +271,29 @@ let g:LanguageClient_serverCommands = {
 		\'-configuration',
 		\'/home/chief/work/lsp-servers/eclipse.jdt.ls.bin/config_linux',
 		\'-data',
-		\'/home/chief/work/srg/srf-ais',],
-  \ }
-
-   "'haskell': [
-      "\'hie',
-      "\'-r', '/home/chief/work/Programmierung_allgemein/Haskell/euler',
-      "\'-l', '/tmp/hie.log',
-      "\'--lsp'],
+		\'/home/chief/work/srg/srf-ais'
+  \ ],
+  \ 'haskell': [
+      \'hie-wrapper',
+      \'-l', '/tmp/hie.log',
+      \'--lsp'
+  \ ]
+\}
 
 "nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 "exit terminal on escape
 "tnoremap <Esc> <C-\><C-n>
 tnoremap  <C-\><C-n>
 
-"map <Leader>lh :call LanguageClient#textDocument_hover()<CR>
-"map <Leader>lc :call LanguageClient#textDocument_codeAction()<CR>
-"map <Leader>ld :call LanguageClient#textDocument_definition()<CR>
-"map <Leader>lr :call LanguageClient#textDocument_rename()<CR>
-"map <Leader>lR :call LanguageClient#textDocument_references()<CR>
-"map <Leader>lf :call LanguageClient#textDocument_formatting()<CR>
-"map <Leader>la :call LanguageClient#textDocument_codeAction()<CR>
-"map <Leader>ls :call LanguageClient#textDocument_documentSymbol()<CR>
-
-let g:lsc_enable_autocomplete = v:false
-let g:lsc_server_commands = {
-  \ 'scala': 'metals-vim',
-  \ 'haskell': 'hie --lsp -l /tmp/hie.log',
-  \}
-let g:lsc_auto_map = {
-  \ 'GoToDefinition': '<Leader>ld',
-  \ 'FindReferences': '<Leader>lR',
-  \ 'NextReference': '',
-  \ 'PreviousReference': '',
-  \ 'FindImplementations': '<Leader>li',
-  \ 'FindCodeActions': '<Leader>la',
-  \ 'DocumentSymbol': '<Leader>ls',
-  \ 'WorkspaceSymbol': 'gS',
-  \ 'ShowHover': '<Leader>lh',
-  \ 'SignatureHelp': '<Leader>lS',
-  \ 'Completion': 'omnifunc',
-  \}
-nnoremap <Leader>lD :LSClientAllDiagnostics<CR>
+map <Leader>lc :call LanguageClient#textDocument_codeAction()<CR>
+map <Leader>ld :call LanguageClient#textDocument_definition()<CR>
+map <Leader>lr :call LanguageClient#textDocument_rename()<CR>
+map <Leader>lR :call LanguageClient#textDocument_references()<CR>
+map <Leader>lf :call LanguageClient#textDocument_formatting()<CR>
+map <Leader>la :call LanguageClient#textDocument_codeAction()<CR>
+map <Leader>ls :call LanguageClient#textDocument_documentSymbol()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
 
 silent! so .vimlocal

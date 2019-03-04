@@ -39,3 +39,23 @@ let $ENSIME_VIM_DEBUG = 1
 set errorformat=%E\ %#[error]\ %#%f:%l:\ %m,%-Z\ %#[error]\ %p^,%-G\ %#[error]\ %m
 set errorformat+=%W\ %#[warn]\ %#%f:%l:\ %m,%-Z\ %#[warn]\ %p^,%-G\ %#[warn]\ %m
 set errorformat+=%C\ %#%m
+
+let g:lsc_enable_autocomplete = v:false
+let g:lsc_server_commands = {
+  \ 'scala': 'metals-vim'
+  \}
+let g:lsc_auto_map = {
+  \ 'GoToDefinition': '<Leader>ld',
+  \ 'FindReferences': '<Leader>lR',
+  \ 'NextReference': '',
+  \ 'PreviousReference': '',
+  \ 'FindImplementations': '<Leader>li',
+  \ 'FindCodeActions': '<Leader>la',
+  \ 'DocumentSymbol': '<Leader>ls',
+  \ 'WorkspaceSymbol': 'gS',
+  \ 'ShowHover': '<Leader>lh',
+  \ 'SignatureHelp': '<Leader>lS',
+  \ 'Completion': 'omnifunc',
+  \}
+nnoremap <Leader>lD :LSClientAllDiagnostics<CR>
+
