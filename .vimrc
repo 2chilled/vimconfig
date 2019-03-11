@@ -267,7 +267,7 @@ let g:LanguageClient_serverCommands = {
 		\'-noverify',
 		\'-Xmx1G',
 		\'-jar',
-		\'/home/chief/work/lsp-servers/eclipse.jdt.ls.bin/plugins/org.eclipse.equinox.launcher_1.5.100.v20180827-1352.jar',
+		\'/home/chief/work/lsp-servers/eclipse.jdt.ls.bin/plugins/org.eclipse.equinox.launcher_1.5.200.v20180922-1751.jar',
 		\'-configuration',
 		\'/home/chief/work/lsp-servers/eclipse.jdt.ls.bin/config_linux',
 		\'-data',

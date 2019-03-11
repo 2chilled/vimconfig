@@ -51,6 +51,7 @@ let g:lsc_auto_map = {
   \ 'PreviousReference': '',
   \ 'FindImplementations': '<Leader>li',
   \ 'FindCodeActions': '<Leader>la',
+  \ 'Rename': '<Leader>lr',
   \ 'DocumentSymbol': '<Leader>ls',
   \ 'WorkspaceSymbol': 'gS',
   \ 'ShowHover': '<Leader>lh',
@@ -58,4 +59,3 @@ let g:lsc_auto_map = {
   \ 'Completion': 'omnifunc',
   \}
 nnoremap <Leader>lD :LSClientAllDiagnostics<CR>
-
