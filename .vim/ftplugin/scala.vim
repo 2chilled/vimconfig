@@ -42,9 +42,11 @@ set errorformat+=%C\ %#%m
 
 let g:lsc_enable_autocomplete = v:false
 let g:lsc_server_commands = {
-  \ 'scala': 'metals-vim'
+  \ 'scala': 'metals-vim',
+  \ 'log_level': 'Log'
   \}
 let g:lsc_auto_map = {
+  \ 'defaults': v:true,
   \ 'GoToDefinition': '<Leader>ld',
   \ 'FindReferences': '<Leader>lR',
   \ 'NextReference': '',
