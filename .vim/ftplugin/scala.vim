@@ -42,9 +42,12 @@ set errorformat+=%C\ %#%m
 
 let g:lsc_enable_autocomplete = v:false
 let g:lsc_server_commands = {
-  \ 'scala': 'metals-vim',
-  \ 'log_level': 'Log'
+  \ 'scala': {
+  \   'command': 'metals-vim',
+  \   'log_level': 'Debug'
+  \ }
   \}
+
 let g:lsc_auto_map = {
   \ 'defaults': v:true,
   \ 'GoToDefinition': '<Leader>ld',
@@ -61,3 +64,5 @@ let g:lsc_auto_map = {
   \ 'Completion': 'omnifunc',
   \}
 nnoremap <Leader>lD :LSClientAllDiagnostics<CR>
+
+let g:LanguageClient_serverCommands = {}

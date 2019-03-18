@@ -258,20 +258,20 @@ set hidden
 let g:LanguageClient_loggingLevel = 'DEBUG'
 
 let g:LanguageClient_serverCommands = {
-	\ 'java': ['java',
-		\'-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=1044',
-		\'-Declipse.application=org.eclipse.jdt.ls.core.id1',
-		\'-Dosgi.bundles.defaultStartLevel=4',
-		\'-Declipse.product=org.eclipse.jdt.ls.core.product',
-		\'-Dlog.level=ALL',
-		\'-noverify',
-		\'-Xmx1G',
-		\'-jar',
-		\'/home/chief/work/lsp-servers/eclipse.jdt.ls.bin/plugins/org.eclipse.equinox.launcher_1.5.200.v20180922-1751.jar',
-		\'-configuration',
-		\'/home/chief/work/lsp-servers/eclipse.jdt.ls.bin/config_linux',
-		\'-data',
-		\'/home/chief/work/srg/srf-ais'
+  \ 'java': ['java',
+    \'-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=1044',
+    \'-Declipse.application=org.eclipse.jdt.ls.core.id1',
+    \'-Dosgi.bundles.defaultStartLevel=4',
+    \'-Declipse.product=org.eclipse.jdt.ls.core.product',
+    \'-Dlog.level=ALL',
+    \'-noverify',
+    \'-Xmx1G',
+    \'-jar',
+    \'/home/chief/work/lsp-servers/eclipse.jdt.ls.bin/plugins/org.eclipse.equinox.launcher_1.5.200.v20180922-1751.jar',
+    \'-configuration',
+    \'/home/chief/work/lsp-servers/eclipse.jdt.ls.bin/config_linux',
+    \'-data',
+    \'/home/chief/work/srg/srf-ais'
   \ ],
   \ 'haskell': [
       \'hie-wrapper',
@@ -280,7 +280,7 @@ let g:LanguageClient_serverCommands = {
   \ ]
 \}
 
-"nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 "exit terminal on escape
 "tnoremap <Esc> <C-\><C-n>
 tnoremap  <C-\><C-n>
@@ -296,5 +296,30 @@ nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
+
+"why does lsc not work when this is declared in scala.vim?
+let g:lsc_server_commands = {
+  \ 'scala': {
+  \   'command': 'metals-vim',
+  \   'log_level': 'Debug'
+  \ }
+  \}
+
+let g:lsc_auto_map = {
+  \ 'defaults': v:true,
+  \ 'GoToDefinition': '<Leader>ld',
+  \ 'FindReferences': '<Leader>lR',
+  \ 'NextReference': '',
+  \ 'PreviousReference': '',
+  \ 'FindImplementations': '<Leader>li',
+  \ 'FindCodeActions': '<Leader>la',
+  \ 'Rename': '<Leader>lr',
+  \ 'DocumentSymbol': '<Leader>ls',
+  \ 'WorkspaceSymbol': 'gS',
+  \ 'ShowHover': '<Leader>lh',
+  \ 'SignatureHelp': '<Leader>lS',
+  \ 'Completion': 'omnifunc',
+  \}
+nnoremap <Leader>lD :LSClientAllDiagnostics<CR>
 
 silent! so .vimlocal
