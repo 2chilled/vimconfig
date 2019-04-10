@@ -64,5 +64,7 @@ let g:lsc_auto_map = {
   \ 'Completion': 'omnifunc',
   \}
 nnoremap <Leader>lD :LSClientAllDiagnostics<CR>
+highlight lscDiagnosticError cterm=bold ctermfg=196 gui=bold guifg=DarkRed
+highlight lscDiagnosticWarning cterm=bold ctermfg=214 gui=bold guifg=Orange
 
 let g:LanguageClient_serverCommands = {}
