@@ -44,7 +44,7 @@ let g:lsc_enable_autocomplete = v:false
 let g:lsc_server_commands = {
   \ 'scala': {
   \   'command': 'metals-vim',
-  \   'log_level': 'Debug'
+  \   'log_level': 'Log'
   \ }
   \}
 

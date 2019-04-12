@@ -301,7 +301,7 @@ set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
 let g:lsc_server_commands = {
   \ 'scala': {
   \   'command': 'metals-vim',
-  \   'log_level': 'Debug'
+  \   'log_level': 'Log'
   \ }
   \}
 
