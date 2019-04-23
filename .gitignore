@@ -2,3 +2,5 @@
 .vim/bundle/*
 .vim/doc/*
 *.swp
+.metals
+tags

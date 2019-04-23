@@ -53,8 +53,8 @@ Plugin 'neomake/neomake'
 Plugin 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim/' }
 Plugin 'vim-scripts/BufOnly.vim'
 Plugin 'autozimu/LanguageClient-neovim'
-Plugin 'natebosch/vim-lsc'
 Plugin 'junegunn/fzf'
+Plugin 'neoclide/coc.nvim'
 Plugin 'file:///home/chief/.vim/bundle/vim-sbt'
 
 " " The following are examples of different formats supported.
@@ -295,31 +295,7 @@ map <Leader>ls :call LanguageClient#textDocument_documentSymbol()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
-
-"why does lsc not work when this is declared in scala.vim?
-let g:lsc_server_commands = {
-  \ 'scala': {
-  \   'command': 'metals-vim',
-  \   'log_level': 'Log'
-  \ }
-  \}
-
-let g:lsc_auto_map = {
-  \ 'defaults': v:true,
-  \ 'GoToDefinition': '<Leader>ld',
-  \ 'FindReferences': '<Leader>lR',
-  \ 'NextReference': '',
-  \ 'PreviousReference': '',
-  \ 'FindImplementations': '<Leader>li',
-  \ 'FindCodeActions': '<Leader>la',
-  \ 'Rename': '<Leader>lr',
-  \ 'DocumentSymbol': '<Leader>ls',
-  \ 'WorkspaceSymbol': 'gS',
-  \ 'ShowHover': '<Leader>lh',
-  \ 'SignatureHelp': '<Leader>lS',
-  \ 'Completion': 'omnifunc',
-  \}
-nnoremap <Leader>lD :LSClientAllDiagnostics<CR>
+"set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
 
 silent! so .vimlocal
+autocmd FileType json syntax match Comment +\/\/.\+$+
