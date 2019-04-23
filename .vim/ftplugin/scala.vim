@@ -40,7 +40,7 @@ set errorformat=%E\ %#[error]\ %#%f:%l:\ %m,%-Z\ %#[error]\ %p^,%-G\ %#[error]\ 
 set errorformat+=%W\ %#[warn]\ %#%f:%l:\ %m,%-Z\ %#[warn]\ %p^,%-G\ %#[warn]\ %m
 set errorformat+=%C\ %#%m
 
-let g:lsc_enable_autocomplete = v:false
+let g:lsc_enable_autocomplete = v:true
 let g:lsc_server_commands = {
   \ 'scala': {
   \   'command': 'metals-vim',
