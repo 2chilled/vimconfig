@@ -53,8 +53,8 @@ Plugin 'neomake/neomake'
 Plugin 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim/' }
 Plugin 'vim-scripts/BufOnly.vim'
 Plugin 'autozimu/LanguageClient-neovim'
-Plugin 'natebosch/vim-lsc'
 Plugin 'junegunn/fzf'
+Plugin 'neoclide/coc.nvim'
 Plugin 'file:///home/chief/.vim/bundle/vim-sbt'
 
 " " The following are examples of different formats supported.
@@ -258,20 +258,20 @@ set hidden
 let g:LanguageClient_loggingLevel = 'DEBUG'
 
 let g:LanguageClient_serverCommands = {
-	\ 'java': ['java',
-		\'-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=1044',
-		\'-Declipse.application=org.eclipse.jdt.ls.core.id1',
-		\'-Dosgi.bundles.defaultStartLevel=4',
-		\'-Declipse.product=org.eclipse.jdt.ls.core.product',
-		\'-Dlog.level=ALL',
-		\'-noverify',
-		\'-Xmx1G',
-		\'-jar',
-		\'/home/chief/work/lsp-servers/eclipse.jdt.ls.bin/plugins/org.eclipse.equinox.launcher_1.5.100.v20180827-1352.jar',
-		\'-configuration',
-		\'/home/chief/work/lsp-servers/eclipse.jdt.ls.bin/config_linux',
-		\'-data',
-		\'/home/chief/work/srg/srf-ais'
+  \ 'java': ['java',
+    \'-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=1044',
+    \'-Declipse.application=org.eclipse.jdt.ls.core.id1',
+    \'-Dosgi.bundles.defaultStartLevel=4',
+    \'-Declipse.product=org.eclipse.jdt.ls.core.product',
+    \'-Dlog.level=ALL',
+    \'-noverify',
+    \'-Xmx1G',
+    \'-jar',
+    \'/home/chief/work/lsp-servers/eclipse.jdt.ls.bin/plugins/org.eclipse.equinox.launcher_1.5.200.v20180922-1751.jar',
+    \'-configuration',
+    \'/home/chief/work/lsp-servers/eclipse.jdt.ls.bin/config_linux',
+    \'-data',
+    \'/home/chief/work/srg/srf-ais'
   \ ],
   \ 'haskell': [
       \'hie-wrapper',
@@ -280,7 +280,7 @@ let g:LanguageClient_serverCommands = {
   \ ]
 \}
 
-"nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 "exit terminal on escape
 "tnoremap <Esc> <C-\><C-n>
 tnoremap  <C-\><C-n>
@@ -295,6 +295,6 @@ map <Leader>ls :call LanguageClient#textDocument_documentSymbol()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
 
 silent! so .vimlocal
+autocmd FileType json syntax match Comment +\/\/.\+$+
