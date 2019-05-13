@@ -76,7 +76,7 @@ nmap <Leader>lR <Plug>(coc-references)
 nmap <Leader>la <Plug>(coc-codeaction)
 
 " Remap for do action format
-nnoremap <Leader>lf :call CocAction('format')<CR>
+map <Leader>lf :call CocAction('format')<CR>
 
 " Use K for show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
