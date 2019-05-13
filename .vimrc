@@ -295,7 +295,6 @@ map <Leader>ls :call LanguageClient#textDocument_documentSymbol()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-"set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
 
 silent! so .vimlocal
 autocmd FileType json syntax match Comment +\/\/.\+$+
