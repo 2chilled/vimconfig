@@ -13,12 +13,4 @@ set shiftwidth=4
 set softtabstop=4
 
 let g:neomake_java_enabled_makers = []
-
-"let g:deoplete#sources = {}
-"let g:deoplete#sources.java = ['buffer', 'tags', 'omni']
-"let g:deoplete#omni#input_patterns = {}
-"let g:deoplete#omni#input_patterns.java = [
-  "\ '[^. *\t]\.\w*',
-  "\ '[:\[,] ?\w*',
-  "\ '^import .*'
-  "\]
+call deoplete#disable()
