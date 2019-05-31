@@ -251,6 +251,8 @@ let g:gutentags_project_root = [
 
 "used to workaround a strange char encoding issue with xfce4-terminal (02.05.2018)
 set guicursor=
+tnoremap ^^ <C-\><C-n>
+tnoremap  <C-\><C-n>
 
 "language server client
 set hidden
