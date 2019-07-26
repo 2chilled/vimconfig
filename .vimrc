@@ -331,3 +331,5 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 silent! so .vimlocal
 autocmd FileType json syntax match Comment +\/\/.\+$+
+
+set scrollback=100000
