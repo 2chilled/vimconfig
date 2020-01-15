@@ -40,13 +40,13 @@ call deoplete#custom#var('omni', 'input_patterns', {
   \})
 
 "map <Leader>lh :call LanguageClient#textDocument_hover()<CR>
-map <Leader>lc :call LanguageClient#textDocument_codeAction()<CR>
-map <Leader>ld :call LanguageClient#textDocument_definition()<CR>
-map <Leader>lr :call LanguageClient#textDocument_rename()<CR>
-map <Leader>lR :call LanguageClient#textDocument_references()<CR>
-map <Leader>lf :call LanguageClient#textDocument_formatting()<CR>
-map <Leader>la :call LanguageClient#textDocument_codeAction()<CR>
-map <Leader>ls :call LanguageClient#textDocument_documentSymbol()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
+"map <Leader>lc :call LanguageClient#textDocument_codeAction()<CR>
+"map <Leader>ld :call LanguageClient#textDocument_definition()<CR>
+"map <Leader>lr :call LanguageClient#textDocument_rename()<CR>
+"map <Leader>lR :call LanguageClient#textDocument_references()<CR>
+"map <Leader>lf :call LanguageClient#textDocument_formatting()<CR>
+"map <Leader>la :call LanguageClient#textDocument_codeAction()<CR>
+"map <Leader>ls :call LanguageClient#textDocument_documentSymbol()<CR>
+"nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+"nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+"set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()

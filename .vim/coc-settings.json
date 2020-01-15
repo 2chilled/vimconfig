@@ -1,16 +1,6 @@
 {
   "java.errors.incompleteClasspath.severity": "ignore",
   "languageserver": {
-    "metals": {
-      "command": "metals-vim",
-      "filetypes": [
-        "scala",
-        "sbt"
-      ],
-      "rootPatterns": [
-        "build.sbt"
-      ]
-    },
     "bash": {
       "ignoredRootPaths": [
         "~"
