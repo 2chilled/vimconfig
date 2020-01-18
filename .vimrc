@@ -56,6 +56,7 @@ Plugin 'vim-scripts/BufOnly.vim'
 Plugin 'junegunn/fzf'
 Plugin 'neoclide/coc.nvim'
 Plugin 'file:///home/chief/.vim/bundle/vim-sbt'
+Plugin 'goerz/jupytext.vim'
 
 " " The following are examples of different formats supported.
 " " Keep Plugin commands between vundle#begin/end.
@@ -288,16 +289,16 @@ nmap <silent> [c <Plug>(coc-diagnostic-prev)
 nmap <silent> ]c <Plug>(coc-diagnostic-next)
 
 " Remap keys for gotos
-nmap <Leader>ld <Plug>(coc-definition)
-nmap <Leader>lt <Plug>(coc-type-definition)
-nmap <Leader>li <Plug>(coc-implementation)
-nmap <Leader>lR <Plug>(coc-references)
+nmap <silent><Leader>ld <Plug>(coc-definition)
+nmap <silent><Leader>lt <Plug>(coc-type-definition)
+nmap <silent><Leader>li <Plug>(coc-implementation)
+nmap <silent><Leader>lR <Plug>(coc-references)
 
 " Remap for do codeAction of current line
-nmap <Leader>la <Plug>(coc-codeaction)
+nmap <silent><Leader>la <Plug>(coc-codeaction)
 
 " Remap for do action format
-map <Leader>lf :call CocAction('format')<CR>
+map <silent><Leader>lf :call CocAction('format')<CR>
 
 " Use K for show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -314,20 +315,24 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Remap for rename current word
-nmap <leader>lr <Plug>(coc-rename)
+nmap <silent><Leader>lr <Plug>(coc-rename)
 
 " Show all diagnostics
-nnoremap <Leader>lD  :<C-u>CocList diagnostics<cr>
+nnoremap <silent><Leader>lD  :<C-u>CocList diagnostics<cr>
 " Find symbol of current document
-nnoremap <Leader>lo  :<C-u>CocList outline<cr>
+nnoremap <silent><Leader>lo  :<C-u>CocList outline<cr>
 " Search workspace symbols
-nnoremap <Leader>ls  :<C-u>CocList -I symbols<cr>
+nnoremap <silent><Leader>ls  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
 nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+" Notify coc.nvim that <enter> has been pressed.
+" Currently used for the formatOnType feature.
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 silent! so .vimlocal
 autocmd FileType json syntax match Comment +\/\/.\+$+
