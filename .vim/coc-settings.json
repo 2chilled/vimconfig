@@ -1,5 +1,11 @@
 {
   "java.errors.incompleteClasspath.severity": "ignore",
+  "coc.preferences.rootPatterns": [
+    ".git",
+    ".hg",
+    ".projections.json",
+    "shell.nix"
+  ],
   "languageserver": {
     "bash": {
       "ignoredRootPaths": [
