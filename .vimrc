@@ -194,6 +194,7 @@ let g:ctrlp_custom_ignore = {
     \ 'file': '\v\.(exe|so|dll|hi|o)$',
     \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
     \ }
+let g:ctrlp_root_markers = ['shell.nix', '.git']
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " better key bindings for UltiSnipsExpandTrigger
@@ -241,6 +242,7 @@ inoremap <silent><expr> <NUL> deoplete#mappings#manual_complete()
 let g:gutentags_ctags_exclude = ['**/target/**']
 let g:gutentags_project_root = [
   \'.project_root',
+  \'shell.nix',
   \'.git',
   \ '.hg',
   \ '.svn',
@@ -338,3 +340,4 @@ silent! so .vimlocal
 autocmd FileType json syntax match Comment +\/\/.\+$+
 
 set scrollback=100000
+let g:rooter_patterns = ['shell.nix', '.git', '.git/', '_darcs/', '.hg/', '.bzr/', '.svn/']
