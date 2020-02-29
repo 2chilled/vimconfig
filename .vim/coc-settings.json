@@ -21,14 +21,16 @@
     },
     "haskell": {
       "command": "hie-wrapper",
+      "args": ["--lsp"],
       "filetypes": [
         "hs",
         "lhs",
         "haskell"
       ],
       "rootPatterns": [
-        ".stack.yaml",
-        "cabal.config",
+        "*.cabal",
+        "stack.yaml",
+        "cabal.project",
         "package.yaml"
       ],
       "settings": {
@@ -38,7 +40,10 @@
           "maxNumberOfProblems": 10
         }
       },
-      "initializationOptions": {}
+      "initializationOptions": {
+        "languageServerHaskell": {
+        }
+      }
     }
   }
 }
