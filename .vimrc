@@ -299,14 +299,15 @@ nmap <silent><Leader>lR <Plug>(coc-references)
 " Remap for do codeAction of current line
 nmap <silent><Leader>la <Plug>(coc-codeaction)
 
-" Remap for do action format
-map <silent><Leader>lf :call CocAction('format')<CR>
+" Remap for format selected region
+xmap <leader>lf  <Plug>(coc-format-selected)
+nmap <leader>lf  <Plug>(coc-format-selected)
 
 " Use K for show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
-  if &filetype == 'vim'
+  if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
   else
     call CocAction('doHover')
@@ -335,6 +336,10 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 " Currently used for the formatOnType feature.
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
       \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" Add status line support, for integration with other plugins, checkout `:h coc-status`
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+" Toggle panel with Tree Views
+nnoremap <silent><Leader>lT :<C-u>CocCommand metals.tvp<CR>
 
 silent! so .vimlocal
 autocmd FileType json syntax match Comment +\/\/.\+$+
