@@ -89,7 +89,7 @@ set grepprg=grep\ -nH\ $*
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  "let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
@@ -190,8 +190,8 @@ autocmd BufNewFile,BufRead *.sc set filetype=scala
 let g:EasyGrepFilesToExclude=".svn,.git,dist/**,target/**,node_modules/**"
 
 let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/](\.(git|hg|svn))|dist|target$',
-    \ 'file': '\v\.(exe|so|dll|hi|o)$',
+    \ 'dir':  '\v[\/](\.(git|hg|svn))|dist|target|cassandra[\/]data|venv$',
+    \ 'file': '\v\.(exe|so|dll|hi|o|class)$',
     \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
     \ }
 let g:ctrlp_root_markers = ['shell.nix', '.git']
@@ -260,8 +260,7 @@ tnoremap  <C-\><C-n>
 "language server client
 set hidden
 
-let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
-let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
+let g:airline#extensions#coc#enabled = 1
 
 " Smaller updatetime for CursorHold & CursorHoldI
 set updatetime=300
@@ -310,7 +309,7 @@ function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
   else
-    call CocAction('doHover')
+    call CocActionAsync('doHover')
   endif
 endfunction
 
@@ -346,3 +345,5 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 
 set scrollback=100000
 let g:rooter_patterns = ['shell.nix', '.git', '.git/', '_darcs/', '.hg/', '.bzr/', '.svn/']
+" workaround to prevent terminal from crashing
+autocmd TermOpen set wrap|term://* startinsert

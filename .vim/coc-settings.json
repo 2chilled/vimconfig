@@ -20,29 +20,24 @@
       ]
     },
     "haskell": {
-      "command": "hie-wrapper",
+      "command": "haskell-language-server-wrapper",
       "args": ["--lsp"],
       "filetypes": [
         "hs",
         "lhs",
-        "haskell"
+        "haskell",
+        "lhaskell"
       ],
       "rootPatterns": [
         "*.cabal",
         "stack.yaml",
         "cabal.project",
-        "package.yaml"
+        "package.yaml",
+        "hie.yaml"
       ],
       "settings": {
-        "languageServerHaskell": {
-          "hlintOn": false,
-          "completionSnippetsOn": true,
-          "maxNumberOfProblems": 10
-        }
       },
       "initializationOptions": {
-        "languageServerHaskell": {
-        }
       }
     }
   }
