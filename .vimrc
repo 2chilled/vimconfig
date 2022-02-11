@@ -57,6 +57,7 @@ Plugin 'junegunn/fzf'
 Plugin 'neoclide/coc.nvim'
 Plugin 'file:///home/chief/.vim/bundle/vim-sbt'
 Plugin 'goerz/jupytext.vim'
+Plugin 'glacambre/firenvim'
 
 " " The following are examples of different formats supported.
 " " Keep Plugin commands between vundle#begin/end.
