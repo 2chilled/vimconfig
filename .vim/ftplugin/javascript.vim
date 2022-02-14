@@ -1,4 +1,4 @@
-" size of a hard tabstop
+set foldmethod=indent
 set tabstop=2
 " size of an "indent"
 set shiftwidth=2

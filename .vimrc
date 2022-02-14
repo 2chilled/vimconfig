@@ -57,6 +57,7 @@ Plugin 'junegunn/fzf'
 Plugin 'neoclide/coc.nvim'
 Plugin 'file:///home/chief/.vim/bundle/vim-sbt'
 Plugin 'goerz/jupytext.vim'
+Plugin 'udalov/kotlin-vim'
 
 " " The following are examples of different formats supported.
 " " Keep Plugin commands between vundle#begin/end.
@@ -190,7 +191,7 @@ autocmd BufNewFile,BufRead *.sc set filetype=scala
 let g:EasyGrepFilesToExclude=".svn,.git,dist/**,target/**,node_modules/**"
 
 let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/](\.(git|hg|svn))|dist|target|cassandra[\/]data|venv$',
+    \ 'dir':  '\v[\/](\.(git|hg|svn))|dist|target|cassandra[\/]data|venv|node_modules$',
     \ 'file': '\v\.(exe|so|dll|hi|o|class)$',
     \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
     \ }
