@@ -1,83 +1,69 @@
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" " alternatively, pass a path where Vundle should install plugins
-" "call vundle#begin('~/some/path/here')
-"
-" " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-"Plugin 'eagletmt/ghcmod-vim'
-Plugin 'Shougo/vimshell.vim'
-Plugin 'Shougo/vimproc.vim'
-Plugin 'Shougo/deoplete.nvim'
-"Plugin 'eagletmt/neco-ghc'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'rking/ag.vim'
-Plugin 'dkprice/vim-easygrep'
-Plugin 'airblade/vim-rooter'
-Plugin 'puppetlabs/puppet-syntax-vim'
-Plugin 'bling/vim-airline'
-Plugin 'majutsushi/tagbar'
-Plugin 'LnL7/vim-nix'
-"Plugin 'bitc/vim-hdevtools'
-Plugin 'Twinside/vim-haskellFold'
-Plugin 'derekwyatt/vim-scala'
-Plugin 'pbrisbin/vim-syntax-shakespeare'
-Plugin 'vim-scripts/dbext.vim'
-Plugin 'tpope/vim-fugitive'
-"Plugin 'ensime/ensime-vim'
-Plugin 'sukima/xmledit'
-Plugin 'idanarye/vim-vebugger'
-Plugin 'jtai/vim-womprat'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'vim-latex/vim-latex'
-Plugin 'deb.vim'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'luochen1990/rainbow'
-Plugin 'Raimondi/delimitMate'
-"Plugin 'artur-shaik/vim-javacomplete2'
-Plugin 'gre/play2vim'
-Plugin 'othree/html5.vim'
-Plugin 'ervandew/supertab'
-Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'ludovicchabant/vim-gutentags'
-Plugin 'elubow/cql-vim'
-Plugin 'GEverding/vim-hocon'
-Plugin 'neomake/neomake'
-Plugin 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim/' }
-Plugin 'vim-scripts/BufOnly.vim'
-"Plugin 'autozimu/LanguageClient-neovim'
-Plugin 'junegunn/fzf'
-Plugin 'neoclide/coc.nvim'
-Plugin 'file:///home/chief/.vim/bundle/vim-sbt'
-Plugin 'goerz/jupytext.vim'
-Plugin 'udalov/kotlin-vim'
-Plugin 'glacambre/firenvim'
+call plug#begin()
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+"Plug 'eagletmt/ghcmod-vim'
+Plug 'Shougo/vimshell.vim'
+Plug 'Shougo/vimproc.vim'
+Plug 'Shougo/deoplete.nvim'
+"Plug 'eagletmt/neco-ghc'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'rking/ag.vim'
+Plug 'dkprice/vim-easygrep'
+Plug 'airblade/vim-rooter'
+Plug 'puppetlabs/puppet-syntax-vim'
+Plug 'bling/vim-airline'
+Plug 'majutsushi/tagbar'
+Plug 'LnL7/vim-nix'
+"Plug 'bitc/vim-hdevtools'
+Plug 'Twinside/vim-haskellFold'
+Plug 'derekwyatt/vim-scala'
+Plug 'pbrisbin/vim-syntax-shakespeare'
+Plug 'vim-scripts/dbext.vim'
+Plug 'tpope/vim-fugitive'
+"Plug 'ensime/ensime-vim'
+Plug 'sukima/xmledit'
+Plug 'idanarye/vim-vebugger'
+Plug 'jtai/vim-womprat'
+Plug 'flazz/vim-colorschemes'
+Plug 'vim-latex/vim-latex'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'luochen1990/rainbow'
+Plug 'Raimondi/delimitMate'
+"Plug 'artur-shaik/vim-javacomplete2'
+Plug 'gre/play2vim'
+Plug 'othree/html5.vim'
+Plug 'ervandew/supertab'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'elubow/cql-vim'
+Plug 'GEverding/vim-hocon'
+Plug 'neomake/neomake'
+Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim/' }
+Plug 'vim-scripts/BufOnly.vim'
+"Plug 'autozimu/LanguageClient-neovim'
+Plug 'junegunn/fzf'
+"Plug 'neoclide/coc.nvim', {'tag': '*', 'do': 'yarn install', 'for': ['json', 'lua', 'vim', ]}
+"Plug 'file:///home/chief/.vim/bundle/vim-sbt'
+Plug 'goerz/jupytext.vim'
+Plug 'udalov/kotlin-vim'
+Plug 'glacambre/firenvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'scalameta/nvim-metals', {'tag': 'v0.7.x'}
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'neovim/nvim-lspconfig'
+call plug#end()
 
-" " The following are examples of different formats supported.
-" " Keep Plugin commands between vundle#begin/end.
-" " plugin on GitHub repo
-" Plugin 'tpope/vim-fugitive'
-" " plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" " Git plugin not hosted on GitHub
-" Plugin 'git://git.wincent.com/command-t.git'
-" " git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file:///home/gmarik/path/to/plugin'
-" " The sparkup vim script is in a subdirectory of this repo called vim.
-" " Pass the path to set the runtimepath properly.
-" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" " Avoid a name conflict with L9
-" Plugin 'user/L9', {'name': 'newL9'}
-"
-" " All of your Plugins must be added before the following line
-call vundle#end()            " required
 filetype plugin indent on    " required
 
 " REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
@@ -241,7 +227,7 @@ call deoplete#custom#source('_',  'max_kind_width', 0)
 inoremap <silent><expr> <C-Space> deoplete#mappings#manual_complete()
 inoremap <silent><expr> <NUL> deoplete#mappings#manual_complete()
 
-let g:gutentags_ctags_exclude = ['**/target/**']
+let g:gutentags_ctags_exclude = ['**/target/**', '/cdk.out', 'node_modules']
 let g:gutentags_project_root = [
   \'.project_root',
   \'shell.nix',
@@ -262,7 +248,7 @@ tnoremap  <C-\><C-n>
 "language server client
 set hidden
 
-let g:airline#extensions#coc#enabled = 1
+"let g:airline#extensions#coc#enabled = 1
 
 " Smaller updatetime for CursorHold & CursorHoldI
 set updatetime=300
@@ -281,28 +267,28 @@ set nowritebackup
 set cmdheight=2
 
 " Use <c-space> for trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
+"inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use <cr> for confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Use `[c` and `]c` for navigate diagnostics
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
+"nmap <silent> [c <Plug>(coc-diagnostic-prev)
+"nmap <silent> ]c <Plug>(coc-diagnostic-next)
 
 " Remap keys for gotos
-nmap <silent><Leader>ld <Plug>(coc-definition)
-nmap <silent><Leader>lt <Plug>(coc-type-definition)
-nmap <silent><Leader>li <Plug>(coc-implementation)
-nmap <silent><Leader>lR <Plug>(coc-references)
+"nmap <silent><Leader>ld <Plug>(coc-definition)
+"nmap <silent><Leader>lt <Plug>(coc-type-definition)
+"nmap <silent><Leader>li <Plug>(coc-implementation)
+"nmap <silent><Leader>lR <Plug>(coc-references)
 
 " Remap for do codeAction of current line
-nmap <silent><Leader>la <Plug>(coc-codeaction)
+"nmap <silent><Leader>la <Plug>(coc-codeaction)
 
 " Remap for format selected region
-xmap <leader>lf  <Plug>(coc-format-selected)
-nmap <leader>lf  <Plug>(coc-format-selected)
+"xmap <leader>lf  <Plug>(coc-format-selected)
+"nmap <leader>lf  <Plug>(coc-format-selected)
 
 " Use K for show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -316,7 +302,7 @@ function! s:show_documentation()
 endfunction
 
 " Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Remap for rename current word
 nmap <silent><Leader>lr <Plug>(coc-rename)
@@ -335,10 +321,9 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 " Notify coc.nvim that <enter> has been pressed.
 " Currently used for the formatOnType feature.
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+"inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 " Add status line support, for integration with other plugins, checkout `:h coc-status`
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+"set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " Toggle panel with Tree Views
 nnoremap <silent><Leader>lT :<C-u>CocCommand metals.tvp<CR>
 
@@ -349,3 +334,35 @@ set scrollback=100000
 let g:rooter_patterns = ['shell.nix', '.git', '.git/', '_darcs/', '.hg/', '.bzr/', '.svn/']
 " workaround to prevent terminal from crashing
 autocmd TermOpen set wrap|term://* startinsert
+imap <c-space> <c-x><c-o>
+
+:lua << EOF
+  metals_config = require'metals'.bare_config()
+  metals_config.settings = {
+     showImplicitArguments = true,
+     excludedPackages = {
+       "akka.actor.typed.javadsl",
+       "com.github.swagger.akka.javadsl"
+     }
+  }
+
+  metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+  metals_config.on_attach = function()
+    require'completion'.on_attach();
+  end
+
+  metals_config.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics, {
+      virtual_text = {
+        prefix = '-',
+      }
+    }
+  )
+
+EOF
+
+augroup lsp
+  au!
+  au FileType scala,sbt lua require('metals').initialize_or_attach(metals_config)
+augroup end
