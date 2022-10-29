@@ -10,11 +10,6 @@ filetype off                  " required
 call plug#begin()
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
-"Plug 'eagletmt/ghcmod-vim'
-Plug 'Shougo/vimshell.vim'
-Plug 'Shougo/vimproc.vim'
-Plug 'Shougo/deoplete.nvim'
-"Plug 'eagletmt/neco-ghc'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'rking/ag.vim'
 Plug 'dkprice/vim-easygrep'
@@ -23,15 +18,12 @@ Plug 'puppetlabs/puppet-syntax-vim'
 Plug 'bling/vim-airline'
 Plug 'majutsushi/tagbar'
 Plug 'LnL7/vim-nix'
-"Plug 'bitc/vim-hdevtools'
 Plug 'Twinside/vim-haskellFold'
 Plug 'derekwyatt/vim-scala'
 Plug 'pbrisbin/vim-syntax-shakespeare'
 Plug 'vim-scripts/dbext.vim'
 Plug 'tpope/vim-fugitive'
-"Plug 'ensime/ensime-vim'
 Plug 'sukima/xmledit'
-Plug 'idanarye/vim-vebugger'
 Plug 'jtai/vim-womprat'
 Plug 'flazz/vim-colorschemes'
 Plug 'vim-latex/vim-latex'
@@ -39,7 +31,6 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'luochen1990/rainbow'
 Plug 'Raimondi/delimitMate'
-"Plug 'artur-shaik/vim-javacomplete2'
 Plug 'gre/play2vim'
 Plug 'othree/html5.vim'
 Plug 'ervandew/supertab'
@@ -47,13 +38,9 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'elubow/cql-vim'
 Plug 'GEverding/vim-hocon'
-Plug 'neomake/neomake'
 Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim/' }
 Plug 'vim-scripts/BufOnly.vim'
-"Plug 'autozimu/LanguageClient-neovim'
 Plug 'junegunn/fzf'
-"Plug 'neoclide/coc.nvim', {'tag': '*', 'do': 'yarn install', 'for': ['json', 'lua', 'vim', ]}
-"Plug 'file:///home/chief/.vim/bundle/vim-sbt'
 Plug 'goerz/jupytext.vim'
 Plug 'udalov/kotlin-vim'
 Plug 'glacambre/firenvim'
@@ -62,6 +49,11 @@ Plug 'scalameta/nvim-metals', {'tag': 'v0.7.x'}
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+Plug 'mfussenegger/nvim-jdtls'
 call plug#end()
 
 filetype plugin indent on    " required
@@ -125,7 +117,7 @@ colorscheme wombat256mod
 set wildmode=longest,list,full
 
 "completion optimizations
-"set completeopt=longest,menuone
+set completeopt=menu,menuone,noselect
 "inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 nnoremap <SPACE> <Nop>
@@ -212,20 +204,6 @@ let g:vebugger_leader='<Leader>d'
 set mouse=
 
 autocmd BufWritePre * StripWhitespace
-
-"neomake
-let g:neomake_open_list = 2
-
-autocmd BufWritePost * Neomake
-
-let g:deoplete#enable_at_startup = 1
-" disable truncate feature
-call deoplete#custom#source('_',  'max_menu_width', 0)
-call deoplete#custom#source('_',  'max_abbr_width', 0)
-call deoplete#custom#source('_',  'max_kind_width', 0)
-" Ctrl-Space: summon FULL (synced) autocompletion
-inoremap <silent><expr> <C-Space> deoplete#mappings#manual_complete()
-inoremap <silent><expr> <NUL> deoplete#mappings#manual_complete()
 
 let g:gutentags_ctags_exclude = ['**/target/**', '/cdk.out', 'node_modules']
 let g:gutentags_project_root = [
@@ -337,6 +315,60 @@ autocmd TermOpen set wrap|term://* startinsert
 imap <c-space> <c-x><c-o>
 
 :lua << EOF
+  local cmp = require'cmp'
+
+  cmp.setup({
+    snippet = {
+      expand = function(args)
+        vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+      end,
+    },
+    window = {
+      completion = cmp.config.window.bordered(),
+      documentation = cmp.config.window.bordered(),
+    },
+    mapping = cmp.mapping.preset.insert({
+      ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+      ['<C-f>'] = cmp.mapping.scroll_docs(4),
+      ['<C-Space>'] = cmp.mapping.complete(),
+      ['<C-e>'] = cmp.mapping.abort(),
+      ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    }),
+    sources = cmp.config.sources({
+      { name = 'nvim_lsp' },
+      { name = 'ultisnips' }, -- For ultisnips users.
+    }, {
+      { name = 'buffer' },
+    })
+  })
+
+  -- Set configuration for specific filetype.
+ -- cmp.setup.filetype('gitcommit', {
+ --   sources = cmp.config.sources({
+ --     { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+ --   }, {
+ --     { name = 'buffer' },
+ --   })
+ -- })
+
+  -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+  cmp.setup.cmdline({ '/', '?' }, {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+      { name = 'buffer' }
+    }
+  })
+
+  -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+  cmp.setup.cmdline(':', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+      { name = 'path' }
+    }, {
+      { name = 'cmdline' }
+    })
+  })
+
   metals_config = require'metals'.bare_config()
   metals_config.settings = {
      showImplicitArguments = true,
@@ -359,10 +391,24 @@ imap <c-space> <c-x><c-o>
       }
     }
   )
-
 EOF
 
 augroup lsp
   au!
   au FileType scala,sbt lua require('metals').initialize_or_attach(metals_config)
 augroup end
+
+nmap <silent><Leader>ld           <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> K               <cmd>lua vim.lsp.buf.hover()<CR>
+nmap <silent><Leader>li           <cmd>lua vim.lsp.buf.implementation()<CR>
+nmap <silent><Leader>lR           <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent><Leader>lo       <cmd>lua vim.lsp.buf.document_symbol()<CR>
+nnoremap <silent><Leader>ls       <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+nmap <silent><Leader>lr           <cmd>lua vim.lsp.buf.rename()<CR>
+nnoremap <silent> <leader>lf      <cmd>lua vim.lsp.buf.formatting()<CR>
+nmap <silent><Leader>la           <cmd>lua vim.lsp.buf.code_action()<CR>
+nnoremap <silent><Leader>lD       <cmd>lua vim.diagnostic.setqflist()<CR>
+nnoremap <silent> <space>d        <cmd>lua vim.lsp.diagnostic.set_loclist()<CR>
+nnoremap <silent> [c              <cmd>lua vim.lsp.diagnostic.goto_prev { wrap = false }<CR>
+nnoremap <silent> ]c              <cmd>lua vim.lsp.diagnostic.goto_next { wrap = false }<CR>
+set foldmethod=indent

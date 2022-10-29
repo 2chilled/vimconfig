@@ -12,5 +12,17 @@ set shiftwidth=4
 " other than the (hard)tabstop
 set softtabstop=4
 
-let g:neomake_java_enabled_makers = []
-call deoplete#disable()
+setlocal omnifunc=v:lua.vim.lsp.omnifunc
+
+:lua << EOF
+  local config = {
+    cmd = {
+        'jdt-language-server',
+        '-Xmx2G',
+        '-data',
+        vim.fn.getcwd()
+    },
+    capabilities = require("cmp_nvim_lsp").default_capabilities(),
+  }
+  require('jdtls').start_or_attach(config)
+EOF
