@@ -12,8 +12,6 @@ set shiftwidth=4
 " other than the (hard)tabstop
 set softtabstop=4
 
-setlocal omnifunc=v:lua.vim.lsp.omnifunc
-
 :lua << EOF
   local config = {
     cmd = {

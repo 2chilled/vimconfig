@@ -391,6 +391,20 @@ imap <c-space> <c-x><c-o>
       }
     }
   )
+
+  require'lspconfig'.texlab.setup{
+    settings = {
+      texlab = {
+        chktex = {
+          onSave = true
+        },
+        build = {
+          onSave = true
+        }
+      }
+    },
+    capabilities = require("cmp_nvim_lsp").default_capabilities()
+  }
 EOF
 
 augroup lsp
@@ -412,3 +426,5 @@ nnoremap <silent> <space>d        <cmd>lua vim.lsp.diagnostic.set_loclist()<CR>
 nnoremap <silent> [c              <cmd>lua vim.lsp.diagnostic.goto_prev { wrap = false }<CR>
 nnoremap <silent> ]c              <cmd>lua vim.lsp.diagnostic.goto_next { wrap = false }<CR>
 set foldmethod=indent
+setlocal omnifunc=v:lua.vim.lsp.omnifunc
+
