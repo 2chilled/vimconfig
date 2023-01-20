@@ -8,7 +8,7 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 call plug#begin()
-Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'rking/ag.vim'
@@ -158,12 +158,6 @@ let g:acp_enableAtStartup = 0
 " inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
 
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd BufNewFile,BufRead *.sc set filetype=scala
 " autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
@@ -196,9 +190,6 @@ set tags=./tags,./TAGS,tags,TAGS,./.tags,.tags
 
 "windows
 set switchbuf +=useopen
-
-"vebugger
-let g:vebugger_leader='<Leader>d'
 
 "disable mouse support
 set mouse=
@@ -251,59 +242,8 @@ set cmdheight=2
 " Coc only does snippet and additional edit on confirm.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-" Use `[c` and `]c` for navigate diagnostics
-"nmap <silent> [c <Plug>(coc-diagnostic-prev)
-"nmap <silent> ]c <Plug>(coc-diagnostic-next)
-
-" Remap keys for gotos
-"nmap <silent><Leader>ld <Plug>(coc-definition)
-"nmap <silent><Leader>lt <Plug>(coc-type-definition)
-"nmap <silent><Leader>li <Plug>(coc-implementation)
-"nmap <silent><Leader>lR <Plug>(coc-references)
-
-" Remap for do codeAction of current line
-"nmap <silent><Leader>la <Plug>(coc-codeaction)
-
-" Remap for format selected region
-"xmap <leader>lf  <Plug>(coc-format-selected)
-"nmap <leader>lf  <Plug>(coc-format-selected)
-
-" Use K for show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocActionAsync('doHover')
-  endif
-endfunction
-
 " Highlight symbol under cursor on CursorHold
 " autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Remap for rename current word
-nmap <silent><Leader>lr <Plug>(coc-rename)
-
-" Show all diagnostics
-nnoremap <silent><Leader>lD  :<C-u>CocList diagnostics<cr>
-" Find symbol of current document
-nnoremap <silent><Leader>lo  :<C-u>CocList outline<cr>
-" Search workspace symbols
-nnoremap <silent><Leader>ls  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
-nnoremap <silent> <space>j  :<C-u>CocNext<CR>
-" Do default action for previous item.
-nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
-" Resume latest coc list
-nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-" Notify coc.nvim that <enter> has been pressed.
-" Currently used for the formatOnType feature.
-"inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-" Add status line support, for integration with other plugins, checkout `:h coc-status`
-"set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-" Toggle panel with Tree Views
-nnoremap <silent><Leader>lT :<C-u>CocCommand metals.tvp<CR>
 
 silent! so .vimlocal
 autocmd FileType json syntax match Comment +\/\/.\+$+
@@ -362,20 +302,31 @@ imap <c-space> <c-x><c-o>
   -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
   cmp.setup.cmdline(':', {
     mapping = cmp.mapping.preset.cmdline(),
-    sources = cmp.config.sources({
-      { name = 'path' }
-    }, {
-      { name = 'cmdline' }
-    })
+    sources = cmp.config.sources(
+      {
+        {
+          name = 'path',
+          option = {
+            trailing_slash = true
+          }
+        }
+      },
+      {
+        { name = 'cmdline' }
+      }
+    )
   })
 
   metals_config = require'metals'.bare_config()
   metals_config.settings = {
-     showImplicitArguments = true,
-     excludedPackages = {
-       "akka.actor.typed.javadsl",
-       "com.github.swagger.akka.javadsl"
-     }
+    showImplicitArguments = true,
+    excludedPackages = {
+     "akka.actor.typed.javadsl",
+     "com.github.swagger.akka.javadsl"
+    },
+    serverProperties = {
+      "-Xmx4G"
+    }
   }
 
   metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -405,6 +356,14 @@ imap <c-space> <c-x><c-o>
     },
     capabilities = require("cmp_nvim_lsp").default_capabilities()
   }
+
+  require'lspconfig'.groovyls.setup{
+    cmd = { "java", "-jar", "/home/chief/work/groovy-language-server/build/libs/groovy-language-server-all.jar" },
+    capabilities = require("cmp_nvim_lsp").default_capabilities(),
+    settings = {
+
+    }
+  }
 EOF
 
 augroup lsp
@@ -425,6 +384,9 @@ nnoremap <silent><Leader>lD       <cmd>lua vim.diagnostic.setqflist()<CR>
 nnoremap <silent> <space>d        <cmd>lua vim.lsp.diagnostic.set_loclist()<CR>
 nnoremap <silent> [c              <cmd>lua vim.lsp.diagnostic.goto_prev { wrap = false }<CR>
 nnoremap <silent> ]c              <cmd>lua vim.lsp.diagnostic.goto_next { wrap = false }<CR>
+autocmd CursorHold  <buffer> lua vim.lsp.buf.document_highlight()
+autocmd CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()
+autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
 set foldmethod=indent
 setlocal omnifunc=v:lua.vim.lsp.omnifunc
 

@@ -18,8 +18,9 @@ set softtabstop=4
         'jdt-language-server',
         '-Xmx2G',
         '-data',
-        vim.fn.getcwd()
+        vim.fn.getcwd() .. "/../.workspace/"
     },
+    root_dir = require('jdtls.setup').find_root({'.git', 'mvnw', 'gradlew'}),
     capabilities = require("cmp_nvim_lsp").default_capabilities(),
   }
   require('jdtls').start_or_attach(config)
