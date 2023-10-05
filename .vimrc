@@ -45,7 +45,7 @@ Plug 'goerz/jupytext.vim'
 Plug 'udalov/kotlin-vim'
 Plug 'glacambre/firenvim'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'scalameta/nvim-metals', {'tag': 'v0.7.x'}
+Plug 'scalameta/nvim-metals'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'neovim/nvim-lspconfig'
@@ -54,6 +54,7 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 Plug 'mfussenegger/nvim-jdtls'
+Plug 'aklt/plantuml-syntax'
 call plug#end()
 
 filetype plugin indent on    " required
@@ -164,11 +165,12 @@ autocmd BufNewFile,BufRead *.sc set filetype=scala
 let g:EasyGrepFilesToExclude=".svn,.git,dist/**,target/**,node_modules/**"
 
 let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/](\.(git|hg|svn))|dist|target|cassandra[\/]data|venv|node_modules$',
+    \ 'dir':  '\v[\/]\.(git|hg|svn)$|dist|target|cassandra[\/]data|venv|node_modules|cdk.out',
     \ 'file': '\v\.(exe|so|dll|hi|o|class)$',
     \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
     \ }
 let g:ctrlp_root_markers = ['shell.nix', '.git']
+let g:ctrlp_max_files = 100000
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " better key bindings for UltiSnipsExpandTrigger
@@ -305,14 +307,19 @@ imap <c-space> <c-x><c-o>
     sources = cmp.config.sources(
       {
         {
-          name = 'path',
-          option = {
-            trailing_slash = true
-          }
+          name = 'path'
+          -- option = {
+          --  trailing_slash = true
+          -- }
         }
       },
       {
-        { name = 'cmdline' }
+        {
+          name = 'cmdline',
+          option = {
+            ignore_cmds = { 'Man', '!' }
+          }
+        },
       }
     )
   })
@@ -320,6 +327,7 @@ imap <c-space> <c-x><c-o>
   metals_config = require'metals'.bare_config()
   metals_config.settings = {
     showImplicitArguments = true,
+    enableSemanticHighlighting = false,
     excludedPackages = {
      "akka.actor.typed.javadsl",
      "com.github.swagger.akka.javadsl"
@@ -364,6 +372,9 @@ imap <c-space> <c-x><c-o>
 
     }
   }
+
+  require'lspconfig'.sqlls.setup{
+  }
 EOF
 
 augroup lsp
@@ -378,7 +389,7 @@ nmap <silent><Leader>lR           <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent><Leader>lo       <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <silent><Leader>ls       <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nmap <silent><Leader>lr           <cmd>lua vim.lsp.buf.rename()<CR>
-nnoremap <silent> <leader>lf      <cmd>lua vim.lsp.buf.formatting()<CR>
+nnoremap <silent> <leader>lf      <cmd>lua vim.lsp.buf.format()<CR>
 nmap <silent><Leader>la           <cmd>lua vim.lsp.buf.code_action()<CR>
 nnoremap <silent><Leader>lD       <cmd>lua vim.diagnostic.setqflist()<CR>
 nnoremap <silent> <space>d        <cmd>lua vim.lsp.diagnostic.set_loclist()<CR>
