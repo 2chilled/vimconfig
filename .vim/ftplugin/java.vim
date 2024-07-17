@@ -15,7 +15,7 @@ set softtabstop=4
 :lua << EOF
   local config = {
     cmd = {
-        'jdt-language-server',
+        'jdtls',
         '-Xmx2G',
         '-data',
         vim.fn.getcwd() .. "/../.workspace/"

@@ -339,9 +339,9 @@ imap <c-space> <c-x><c-o>
 
   metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-  metals_config.on_attach = function()
-    require'completion'.on_attach();
-  end
+  --metals_config.on_attach = function()
+  --  require'completion'.on_attach();
+  --end
 
   metals_config.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
