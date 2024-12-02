@@ -112,6 +112,8 @@ set modeline
 syntax on
 set t_Co=256
 "colorscheme desert
+set notermguicolors
+colorscheme vim
 colorscheme wombat256mod
 
 "bash like tab completion for file names
@@ -198,7 +200,8 @@ set mouse=
 
 autocmd BufWritePre * StripWhitespace
 
-let g:gutentags_ctags_exclude = ['**/target/**', '/cdk.out', 'node_modules']
+let g:gutentags_trace = 0
+let g:gutentags_ctags_exclude = ['**/target/**', '**/cdk.out/**', 'cdk.out', 'node_modules']
 let g:gutentags_project_root = [
   \'.project_root',
   \'shell.nix',
@@ -212,7 +215,7 @@ let g:gutentags_project_root = [
 
 
 "used to workaround a strange char encoding issue with xfce4-terminal (02.05.2018)
-set guicursor=
+"set guicursor=
 tnoremap ^^ <C-\><C-n>
 tnoremap  <C-\><C-n>
 
@@ -334,7 +337,12 @@ imap <c-space> <c-x><c-o>
     },
     serverProperties = {
       "-Xmx4G"
-    }
+    },
+    serverVersion = "1.3.5",
+    metals = {
+      serverVersion = "1.3.5",
+      enableSemanticHighlighting = false
+    },
   }
 
   metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
